@@ -8,5 +8,7 @@ import Ben from './benspage/benswork.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
+    <Ben />
+    
   </StrictMode>,
 )
