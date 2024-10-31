@@ -1,0 +1,34 @@
+nav {
+    
+    background-color: rgb(200, 130, 224);
+    padding: 30px;
+    width: 100%;
+    box-sizing: border-box;
+
+
+
+}
+
+nav li {
+    
+    display: inline;
+    padding-left: 25px;
+    padding-right: 10px;
+    
+}
+
+nav li a {
+    
+    color: black;
+    padding: 10px;
+    
+}
+
+.HeaderMain{
+    position: fixed;
+    width: 100%;
+    top: 0; /* Ensures the header is always at the top of the viewport */
+  left: 0; /* Aligns the header to the left edge of the viewport */
+  width: 100%; /* Ensures the header spans the full width */
+  z-index: 1000; /* Ensures the header is above other content */
+}
