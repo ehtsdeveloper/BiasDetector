@@ -1,20 +1,15 @@
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import { useState } from "react";
-import Ben from './Home/benswork'
-import Musa from '../src/musaspage/musashoeb'
-import Navigation from './navigationbar/navbar'
+import Home from '/Home/Home'
 
 function App() {
   return (
+    <Router>
     <div className="app">
-      <Router>
-        < Navigation/>
         <Routes>
-          <Route path="/Home" element={<Home />} />
-       
+          <Route path="/" element={<Home />} />
         </Routes>
-      </Router>
     </div>
+    </Router>
   );
 }
 
