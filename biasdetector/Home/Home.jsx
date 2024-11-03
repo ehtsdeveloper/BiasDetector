@@ -1,14 +1,12 @@
 import React from 'react';
-import Grid from '@mui/material/Grid2'
+import Grid2 from '@mui/material/Grid2'
 import './Homestyles.css'
 
 function Home() {
     return (
-        <Grid container className="home">
-            <Grid item>
-                <p1>"Hello"</p1>
-            </Grid>
-        </Grid>
+        <Grid2>
+            <h1>Material-Ui Depenedencies</h1>
+        </Grid2>
     );
 }
 
