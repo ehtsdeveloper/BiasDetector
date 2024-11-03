@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { useState } from "react";
-import Ben from '../src/benspage/benswork'
+import Ben from './Home/benswork'
 import Musa from '../src/musaspage/musashoeb'
 import Navigation from './navigationbar/navbar'
 
@@ -10,8 +10,7 @@ function App() {
       <Router>
         < Navigation/>
         <Routes>
-          <Route path="/benswork" element={<Ben />} />
-          <Route path="/musashoeb" element={<Musa />} />
+          <Route path="/Home" element={<Home />} />
        
         </Routes>
       </Router>
