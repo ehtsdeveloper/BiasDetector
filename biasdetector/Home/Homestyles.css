@@ -6,24 +6,8 @@
 .home-header {
     background-color: #282c34;
     color: white;
-    padding: 20px;
+    padding: 0px;
     font-size: 1.5em;
+
 }
 
-.home-content {
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-}
-
-.home-footer {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #282c34;
-    color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-}
