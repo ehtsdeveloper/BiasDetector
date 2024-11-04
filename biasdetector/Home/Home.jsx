@@ -1,12 +1,18 @@
 import React from 'react';
-import Grid2 from '@mui/material/Grid2'
 import './Homestyles.css'
 
 function Home() {
     return (
-        <Grid2>
-            <h1>Material-Ui Depenedencies</h1>
-        </Grid2>
+        <body>
+            <div class = "Add Employee">
+                <h1> This is where the add employee menu will go</h1>
+                
+            </div>
+            <div class = "Employees">
+                <h1> This is where the current employees will go</h1>
+
+            </div>
+        </body>
     );
 }
 
