@@ -1,16 +1,24 @@
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import Home from '/Home/Home'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React from "react";
+import Home from '../src/components/Home/Home';
+import Login from '../src/components/Login/Login';
+import Report from '../src/components/Report/Report';
+import Header from './components/Header/Header';
 
-function App() {
+
+const App = () => {
   return (
-    <Router>
-    <div className="app">
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-    </div>
-    </Router>
+      <Router>
+          <Header />
+          <main>
+              <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/Login" element={<Login />} />
+                  <Route path="/Report" element={<Report />} />
+              </Routes>
+          </main>
+      </Router>
   );
-}
+};
 
 export default App;
