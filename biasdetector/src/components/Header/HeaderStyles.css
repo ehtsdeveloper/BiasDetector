@@ -1,0 +1,25 @@
+.headermain {
+    background-color: #6096BA ;
+    position:fixed;
+    width:100%;
+    top: 0px;
+    padding: 20px;
+
+}
+
+.navigation {
+    padding:30px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.navigation a {
+    font-size: medium;
+    color:white;
+
+}
+
+.navigation a:hover {
+    color:aqua;
+}
