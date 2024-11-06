@@ -3,11 +3,11 @@
     position:fixed;
     width:100%;
     top: 0px;
-    padding: 20px;
-
+    padding: 21px;
+    
 }
 
-.navigation {
+.Navigation {
     padding:30px;
     display:flex;
     flex-direction: row;
