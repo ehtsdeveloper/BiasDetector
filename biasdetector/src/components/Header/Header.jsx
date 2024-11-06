@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './Header.css'; // Import your CSS
+import './HeaderStyles.css'; 
 
 const Header = () => {
     return (
-        <header className="background">
+        <header className="headermain">
             <nav className = "navigation">
                 <Link to="/">Home</Link>
                 <Link to="/Login">Login</Link>
