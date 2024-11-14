@@ -1,7 +1,7 @@
 import React from "react";
 const Login = () => {
     return (
-        <div class = "Login">Login</div>
+        <div className = "Login">Login</div>
     )
 }
 
