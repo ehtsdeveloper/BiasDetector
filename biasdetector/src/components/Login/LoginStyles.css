@@ -1,0 +1,33 @@
+.login-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #274C77 ;
+}
+.logo h1{
+    color: #E7ECEF;
+    font-size: 2rem;
+}
+.login-form {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 300px;
+  }
+
+  .login-form h2 {
+    color: #333;
+  }
+
+  .login-button, .password-button {
+    background-color: #E7ECEF;
+    color: 274C77;
+    cursor: pointer;
+  }
+  .create-button{
+    background-color: #A3CEF1;
+    color: 274C77;
+  }
