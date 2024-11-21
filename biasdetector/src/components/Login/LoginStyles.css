@@ -1,39 +1,53 @@
 .login-container{
-    position: absolute;
-    right: 0;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #274C77 ;
-    z-index: 1; /* Ensure the login container is behind the header */
+  background-color: #274C77 ;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
 }
-.logo h1{
-    color: #E7ECEF;
-    font-size: 2rem;
+
+.form-container {
+  background-color: white;
+  width: 20vw; /* 20% of the viewport width */
+  height: 50vh; /* 50% of the viewport height */
+  padding-left: 5%;
+  padding-right: 8%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: auto
 }
+
 .login-form {
-    position: relative;
-    top: 0;
-    background-color: #FFF;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 300px;
-  }
+  background-color: #274C77 ;
+  width: 20vw;
+  height: 50vh;
+  padding-left: 10%;
+  padding-right: 15%;
+  padding-top: 30%;
+  padding-bottom: 30%;
+  border-radius: 15px;
+}
 
-  .login-form h2 {
-    color: #333;
-  }
+.login-form h2 {
+  text-align: center;
+  color: #E7ECEF;
+}
 
-  .login-button, .password-button {
-    background-color: #E7ECEF;
-    color: 274C77;
-    cursor: pointer;
-  }
-  .create-button{
-    background-color: #A3CEF1;
-    color: 274C77;
-  }
+form{
+  justify-content: center;
+  color: #E7ECEF;
+}
+
+.login-action {
+  background-color: #E7ECEF;
+  color: #274C77;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.create-button{
+  background-color: #A3CEF1;
+  color: black;
+}
