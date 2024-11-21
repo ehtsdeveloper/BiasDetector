@@ -1,13 +1,14 @@
 .login-container{
     position: absolute;
     right: 0;
-    top: 125px;
+    top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     background-color: #274C77 ;
+    z-index: 1; /* Ensure the login container is behind the header */
 }
 .logo h1{
     color: #E7ECEF;
