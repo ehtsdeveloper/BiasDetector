@@ -1,25 +1,26 @@
 .headermain {
-    background-color: #6096BA ;
-    position:fixed;
-    width:100%;
-    top: 0px;
-    padding: 21px;
-    
+    background-color: #8B8C89 ;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100; /* Ensure the header is on top */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+
 }
 
 .Navigation {
-    padding:30px;
+    align-items: flex-end;
+    padding:10px;
     display:flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-.navigation a {
-    font-size: medium;
-    color:white;
-
+.Navigation a {
+    text-decoration: none;
+    color: #274C77; /* Change the text color to white */
 }
 
-.navigation a:hover {
-    color:aqua;
+.Navigation a:hover {
+    color: #E7ECEF;
 }
