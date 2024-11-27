@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
 .login-container{
+  font-family: 'Lato', sans-serif; /* Apply the Lato font */
   background-color: #274C77 ;
   width: 100vw;
   height: 100vh;
@@ -72,7 +75,11 @@ form label, form input {
   margin-bottom: 10px;
   font-weight: bold;
   width: 100%; /* Set a fixed width for all buttons */
+  background-color: white;
+}
 
+.password-button {
+  background-color: white;
 }
 
 .password-button, .create-button {
