@@ -5,7 +5,7 @@ const Login = () => {
     return (
         <div className = "login-container">
             {/* LOGO */}    
-        <img classname = "logo" src="src/assets/ehtslogo_ver2.png" alt="Logo" />
+        <img classname = "logo" src="src/assets/ehtslogo_login.png" alt="Logo" />
             {/* FORM CONTAINER */}
             <div className = "form-container">
                 {/* LOGIN FORM */}

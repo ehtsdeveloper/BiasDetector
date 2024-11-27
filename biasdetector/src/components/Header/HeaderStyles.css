@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
+.nav-logo{
+    width: auto;
+    height: 45px;
+    margin-right: auto;
+    margin-left: 5px;
+    border: 2px solid #A3CEF1;
+    background-color: #A3CEF1;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+    padding: 5px 5px;
+
+}
 .headermain {
     background-color: #8B8C89 ;
     position: fixed;
@@ -11,19 +23,25 @@
 }
 
 .Navigation {
-    align-items: flex-end;
     padding:10px;
     display:flex;
     flex-direction: row;
-    justify-content: space-around;
-
+    justify-content: flex-end;
+    align-items: center;
+    height: 45px;
 }
 
 .Navigation a {
     text-decoration: none;
-    color: #274C77; /* Change the text color to white */
+    color: black;
+    margin-left: 20px; /* Optional: Add spacing between links */
+    font-size: larger;
+    border-radius: 10px;
+    padding: 5px 10px;
+    transition: color 0.5s, background-color 0.5s; /* Add transition for color and background-color */
 }
 
 .Navigation a:hover {
     color: #E7ECEF;
+    background-color: #A3CEF1;
 }
