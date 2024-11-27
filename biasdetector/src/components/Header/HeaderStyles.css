@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
 .headermain {
     background-color: #8B8C89 ;
     position: fixed;
@@ -5,7 +7,7 @@
     width: 100%;
     z-index: 100; /* Ensure the header is on top */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
-
+    font-family: 'Lato', sans-serif; /* Apply the Lato font */
 }
 
 .Navigation {
@@ -14,6 +16,7 @@
     display:flex;
     flex-direction: row;
     justify-content: space-around;
+
 }
 
 .Navigation a {
