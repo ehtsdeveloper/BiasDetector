@@ -57,7 +57,14 @@ form{
   justify-content: center;
   align-items: center;
   color: #E7ECEF;
-  width: 100%; /* Ensure form takes full width of .login-form */
+  width: 100%;
+}
+
+form label {
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: large;
+  font-weight: bold;
 }
 
 form label, form input {
@@ -65,7 +72,7 @@ form label, form input {
   margin-bottom: 10px;
   font-size: large;
   font-weight: bold;
-
+  padding-left: 10px;
 }
 
 .login-button{

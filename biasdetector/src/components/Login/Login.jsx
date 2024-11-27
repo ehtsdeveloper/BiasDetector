@@ -13,11 +13,16 @@ const Login = () => {
                     <h2>Welcome</h2>
                     <form>
                     {/* EMAIL */}
-                    <label htmlFor = "email">Email Address</label>
-                    <input type="email" id="email" name="email" required />
+                    <div className="input-container">
+                         <i className="fas fa-envelope"></i>
+                        <label htmlFor = "email">Email Address</label>
+                        <input type="email" id="email" name="email" required />
 
-                    <label htmlFor = "password">Password</label>
-                    <input type="password" id="password" name="password" required />
+                        
+                        <i className="fas fa-lock"></i>
+                        <label htmlFor = "password">Password</label>
+                        <input type="password" id="password" name="password" required />
+                    </div>
                      
                     {/* FORGOT PASSWORD & LOGIN BUTTONS */}
                     <button type="submit" className="login-button">Login</button>
