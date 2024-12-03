@@ -1,0 +1,22 @@
+.background {
+    background-color:#F2F0EF;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+}
+
+.EmployeeFormContainer {
+    flex-grow:2;
+    background-color: #8B8C89;
+    display: flex;
+    flex-direction: column;
+    height: 100%
+}
+
+.EmployeeCards {
+    flex:1;
+}
+.input {
+    background-color: white;
+}

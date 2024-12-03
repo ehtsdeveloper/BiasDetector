@@ -2,11 +2,18 @@ import React, { useEffect, useState} from 'react';
 import { ref, onValue, push } from 'firebase/database';
 import { db } from '../../firebase-config';
 import EmployeeCard from './EmployeeCard';
+import './EmployeeStyles.css'
 
 function EmployeeDisplay() {
+
   const [employees, setEmployees] = useState([]);
-  const [fullname, setFullName] = useState('');
   const [age, setAge] = useState();
+  const [employeeid, setEmployeeid] = useState('');
+  const [fullname, setFullName] = useState('');
+  const [height, setHeight] = useState();
+  const [sex, setSex] = useState('');
+  const [weight, setWeight] = useState();
+  
 
   const EmployeeHandler = async (e) => {
 
@@ -14,8 +21,12 @@ function EmployeeDisplay() {
 
     const nameRef = ref(db, 'users/names');
     const newEmployee = {
-      fullname: fullname,
-      age: age
+      Age: age,
+      EmployeeID: employeeid,
+      FullName: fullname,
+      Height: height,
+      Sex: sex,
+      Weight: weight
     }
 
     push(nameRef, newEmployee)
@@ -50,10 +61,23 @@ function EmployeeDisplay() {
   }, []); // Empty dependency array ensures this runs only once when the component mounts
 
   return (
-    <div>
-      <div>Hello, this is the employees page</div>
-      <div>
-        <form onClick={EmployeeHandler}>
+    <div className='background'>
+      <div className='EmployeeFormContainer'>
+        <form onClick={EmployeeHandler} className='EmployeeForm'>
+        <input
+          className="input"
+          type = "age "
+          placeholder="Enter age"
+          value = {age}
+          onChange = {(e) => setAge(e.target.value)}>
+        </input>
+        <input
+          className="input"
+          type = "employeeid "
+          placeholder="Enter EmployeeID"
+          value = {employeeid}
+          onChange = {(e) => setEmployeeid(e.target.value)}>
+        </input>
         <input
           className="input"
           type = "name "
@@ -63,15 +87,29 @@ function EmployeeDisplay() {
         </input>
         <input
           className="input"
-          type = "age "
-          placeholder="Enter age"
-          value = {age}
-          onChange = {(e) => setAge(e.target.value)}>
+          type = "height"
+          placeholder="Enter Height"
+          value = {height}
+          onChange = {(e) => setHeight(e.target.value)}>
+        </input>
+        <input
+          className="input"
+          type = "weight"
+          placeholder="Enter Weight"
+          value = {weight}
+          onChange = {(e) => setWeight(e.target.value)}>
+        </input>
+        <input
+          className="input"
+          type = "sex"
+          placeholder="Enter Sex"
+          value = {sex}
+          onChange = {(e) => setSex(e.target.value)}>
         </input>
         <button type = "submit">Submit</button>
         </form>
       </div>
-      <div>
+      <div className='EmployeeCards'>
         {employees.map((employee, index) => (
           <EmployeeCard key={index} employee={employee} />
         ))}
