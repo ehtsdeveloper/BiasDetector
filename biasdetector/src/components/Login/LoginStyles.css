@@ -39,7 +39,9 @@ img {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
   padding: 20px; /* Optional: Add padding for spacing */
-  overflow: hidden;
+  overflow-y: auto;
+  min-height: 500px;
+  max-height: 90vh;
 }
 
 .login-form h2 {
