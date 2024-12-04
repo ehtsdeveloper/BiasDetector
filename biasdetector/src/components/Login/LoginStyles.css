@@ -84,7 +84,7 @@ form label, form input {
   margin-bottom: 10px;
   font-weight: bold;
   width: 100%; /* Set a fixed width for all buttons */
-  background-color: white;
+  background-color: #A3CEF1;
 }
 
 .password-button {
@@ -99,9 +99,16 @@ form label, form input {
   margin-top: 10px;
   font-weight: bold;
   width: 100%; /* Set a fixed width for all buttons */
-
+  background-color: #E7ECEF;
 }
 
-.create-button{
-  background-color: #A3CEF1;
+.back-login{
+  color: black;
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+  width: 100%; /* Set a fixed width for all buttons */
+  background-color: #E7ECEF;
 }
