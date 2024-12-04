@@ -6,6 +6,7 @@ import Report from '../src/components/Report/Report';
 import Header from './components/Header/Header';
 import CreateAccount from './components/Login/create-account';
 import EmployeeDisplay from './components/Employees/EmployeeDisplay';
+import Report from '.components/Report/Report';
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
                   <Route path="/Report" element={<Report/>} />
                   <Route path="/create-account" element={<CreateAccount />} />
                   <Route path="/EmployeeDisplay" element={<EmployeeDisplay />} />
+                  <Route path="/Report" element={<Report />} />
               </Routes>
               
           </main>

@@ -21,11 +21,13 @@ const Header = () => {
                 {location.pathname === "/Login" && (
                     <>
                         <Link to="/">Home</Link>
+                        <Link to="/Report">Report</Link>
                     </>
                 )}
                 {location.pathname === "/Report" && (
                     <>
                         <Link to="/">Home</Link>
+                        <Link to="/EmployeeDisplay">Employee Display</Link>
                     </>
                 )}
                 {location.pathname !== "/Home" && location.pathname !== "/Login" && location.pathname !== "/Report" && location.pathname !== "/EmployeeDisplay" && (
@@ -40,8 +42,10 @@ const Header = () => {
                     <>
                         <Link to="/">Home</Link>
                         <Link to="/Report">Report</Link>
+                        <Link to="/EmployeeDisplay">Employee Display</Link>
                     </>
                 )}
+                
             </nav>
         </header>
     );
