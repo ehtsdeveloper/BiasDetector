@@ -2,11 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from '../src/components/Home/Home';
 import Login from '../src/components/Login/Login';
-import Report from '../src/components/Report/Report';
 import Header from './components/Header/Header';
 import CreateAccount from './components/Login/create-account';
 import EmployeeDisplay from './components/Employees/EmployeeDisplay';
-import Report from '.components/Report/Report';
+import Report from './components/Report/Report';
 
 
 const App = () => {
