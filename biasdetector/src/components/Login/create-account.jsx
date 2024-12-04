@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom"; 
 import './LoginStyles.css';
 
-const Login = () => {
+const CreateAccount = () => {
     const navigate = useNavigate();
 
     return (
@@ -13,7 +13,7 @@ const Login = () => {
             <div className = "form-container">
                 {/* LOGIN FORM */}
                 <div className = "login-form">
-                    <h2>Welcome</h2>
+                    <h2>Create an Account</h2>
                     <form>
                     {/* EMAIL */}
                     <div className="input-container">
@@ -28,9 +28,8 @@ const Login = () => {
                     </div>
                      
                     {/* FORGOT PASSWORD & LOGIN BUTTONS */}
-                    <button type="submit" className="login-button">Login</button>
-                    <button type="button" className="password-button">Forgot Password?</button>
-                    <button type="button" className="create-button" onClick={() => navigate('/create-account')}>Create an Account</button>   
+                    <button type="submit" className="login-button">Create Account</button>
+                    <button type="button" className="back-login" onClick={() => navigate('/Login')}>Back to Login</button>
                     </form>
                 </div>
             </div>
@@ -38,4 +37,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default CreateAccount;
