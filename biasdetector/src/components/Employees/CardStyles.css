@@ -1,3 +1,38 @@
-.cardbackground {
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.CardBackground {
     background-color: #6096BA;
+    display:flex;
+    flex-direction: row;
+    height: 100px;
+    border-radius: 10px;
+
+}
+
+.EmployeeProfileContainer {
+    flex:1;
+    margin: 5px;
+    
+}
+
+.EmployeeCredentials {
+    flex:1;
+    font-family: 'Montserrat';
+}
+
+.EmployeeID {
+    font-size: 15px;
+}
+
+.WeightHeight {
+    display: flex;
+    flex-direction: row;
+}
+
+.Height {
+    margin: 5px;
+}
+
+.Weight {
+    margin: 5px;
 }
