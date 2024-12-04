@@ -5,7 +5,6 @@ const Report = () => {
     return (
         <div className="container">
           {/* Thin rectangle at the very top */}
-          <div className="top-bar"></div>
     
           {/* Top Section with two centered rectangles */}
           <div className="section top-section">

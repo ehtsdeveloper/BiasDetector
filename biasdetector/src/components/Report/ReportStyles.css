@@ -1,132 +1,122 @@
 /* Reset default margin/padding */
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  /* The container to hold all sections */
-  .container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh; /* Full height of the viewport */
-  }
-  
-  /* Each section is equally divided */
-  .section {
-    flex: 1; /* Each section will take equal space */
-    margin: 0; /* Remove margin between sections */
-  }
-  
-  /* Top section: just an empty section */
-  .top-section {
-    background-color: #274c77;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    height: 100%; /* Take full height of the section */
-    position: relative; /* Optional for any positioning adjustments */
-  }
-  
-  /* Large rectangle in the center of the top section */
-  .top-rect.large {
-    width: 35%; /* Adjust width as needed */
-    height: 90px; /* Adjust height */
-    background-color: #e7ecef; /* Rectangle color */
-    border-radius: 15px; /* Rounded corners */
-    margin-bottom: 10px; /* Space between the two rectangles */
-  }
-  
-  /* Small rectangle below the large one */
-  .top-rect.small {
-    width: 15%; /* Smaller width */
-    height: 40px; /* Smaller height */
-    background-color: black; /* Rectangle color */
-    border-radius: 10px; /* Rounded corners */
-  }
-  
-  /* Bottom sections: containing two rectangles side by side */
-  .bottom-section {
-    display: flex;
-    justify-content: space-between; /* To space out the rectangles */
-    background-color: #274c77; /* Set background color behind the rectangles */
-    padding: 0 10px; /* Optional: add small horizontal padding inside the section */
-  }
-  
-  /* General styles for rectangles */
-  .rect {
-    background-color: #a3cef152; /* Rectangle color */
-    border-radius: 10px; /* Rounded corners */
-  }
-  
-  .left {
-    width: 65%; /* Longer width */
-    height: 170px; /* Height of the rectangle */
-    display: flex; /* Use Flexbox to arrange the circles inside */
-    justify-content: space-between; /* Evenly space the circles horizontally */
-    align-items: center; /* Center the circles vertically */
-    padding: 0 100px; /* Padding inside the left rectangle */
-  }
-  
-  .circle {
-    width: 150px; /* Circle diameter */
-    height: 150px; /* Circle diameter */
-    background-color: #ff5722; /* Circle color */
-    border-radius: 50%; /* Makes the element circular */
-  }
-  
-  /* Right rectangle: shorter */
-  .right {
-    width: 33%; /* Shorter width */
-    height: 170px;
-    position: relative; /* Ensure that the rounded rectangle can be centered */
-  }
-  
-  /* New Rounded Rectangle in the center of the right rectangle */
-  .rounded-rect {
-    width: 70%; /* Width of the rounded rectangle inside the right rectangle */
-    height: 50px; /* Height of the rounded rectangle */
-    background-color: darkgreen; /* Color of the rounded rectangle */
-    border-radius: 10px; /* Rounded corners */
-    position: absolute; /* Absolute position to center it */
-    top: 50%; /* Center it vertically */
-    left: 50%; /* Center it horizontally */
-    transform: translate(-50%, -50%); /* Translate by -50% to truly center */
-  }
-  
-  /* Thin rectangle across the top */
-  .top-bar {
-    width: 100%; /* Make it stretch across the full width */
-    height: 50px; /* Thin rectangle height */
-    background-color: rgb(
-      167,
-      166,
-      166
-    ); /* Color of the rectangle, change as needed */
-  }
-  
-  /* Individual colors for each circle */
-  .circle.red {
-    background-color: #a3cef1; /* Red color */
-  }
-  
-  .circle.green {
-    background-color: #6096ba; /* Green color */
-  }
-  
-  .circle.blue {
-    background-color: #274c77; /* Blue color */
-  }
-  
-  .circle.yellow {
-    background-color: #a3cef1; /* Yellow color */
-  }
-  
-  .circle.purple {
-    background-color: #6096ba; /* Purple color */
-  }
-  
-  .circle.pink {
-    background-color: #274c77; /* Pink color */
-  }
+  } */
+
+/* The container to hold all sections */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw; /* Full height of the viewport */
+}
+
+/* Each section is equally divided */
+.section {
+  flex: 1; /* Each section will take equal space */
+  margin: 0; /* Remove margin between sections */
+}
+
+/* Top section: just an empty section */
+.top-section {
+  background-color: #274c77;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  height: 100%; /* Take full height of the section */
+  position: relative; /* Optional for any positioning adjustments */
+}
+
+/* Large rectangle in the center of the top section */
+.top-rect.large {
+  width: 35%; /* Adjust width as needed */
+  height: 90px; /* Adjust height */
+  background-color: #e7ecef; /* Rectangle color */
+  border-radius: 15px; /* Rounded corners */
+  margin-bottom: 10px; /* Space between the two rectangles */
+}
+
+/* Small rectangle below the large one */
+.top-rect.small {
+  width: 15%; /* Smaller width */
+  height: 40px; /* Smaller height */
+  background-color: black; /* Rectangle color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Bottom sections: containing two rectangles side by side */
+.bottom-section {
+  display: flex;
+  justify-content: space-between; /* To space out the rectangles */
+  background-color: #274c77; /* Set background color behind the rectangles */
+  padding: 0 10px; /* Optional: add small horizontal padding inside the section */
+}
+
+/* General styles for rectangles */
+.rect {
+  background-color: #a3cef152; /* Rectangle color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.left {
+  width: 65%; /* Longer width */
+  height: 170px; /* Height of the rectangle */
+  display: flex; /* Use Flexbox to arrange the circles inside */
+  justify-content: space-between; /* Evenly space the circles horizontally */
+  align-items: center; /* Center the circles vertically */
+  padding: 0 100px; /* Padding inside the left rectangle */
+}
+
+.circle {
+  width: 150px; /* Circle diameter */
+  height: 150px; /* Circle diameter */
+  background-color: #ff5722; /* Circle color */
+  border-radius: 50%; /* Makes the element circular */
+}
+
+/* Right rectangle: shorter */
+.right {
+  width: 33%; /* Shorter width */
+  height: 170px;
+  position: relative; /* Ensure that the rounded rectangle can be centered */
+}
+
+/* New Rounded Rectangle in the center of the right rectangle */
+.rounded-rect {
+  width: 70%; /* Width of the rounded rectangle inside the right rectangle */
+  height: 50px; /* Height of the rounded rectangle */
+  background-color: darkgreen; /* Color of the rounded rectangle */
+  border-radius: 10px; /* Rounded corners */
+  position: absolute; /* Absolute position to center it */
+  top: 50%; /* Center it vertically */
+  left: 50%; /* Center it horizontally */
+  transform: translate(-50%, -50%); /* Translate by -50% to truly center */
+}
+
+/* Individual colors for each circle */
+.circle.red {
+  background-color: #a3cef1; /* Red color */
+}
+
+.circle.green {
+  background-color: #6096ba; /* Green color */
+}
+
+.circle.blue {
+  background-color: #274c77; /* Blue color */
+}
+
+.circle.yellow {
+  background-color: #a3cef1; /* Yellow color */
+}
+
+.circle.purple {
+  background-color: #6096ba; /* Purple color */
+}
+
+.circle.pink {
+  background-color: #274c77; /* Pink color */
+}
