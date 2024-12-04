@@ -17,4 +17,4 @@ Navigate to that using "git checkout whateveryourchangesare"
 Adding Content
 Add new files as .jsx
 Stage your changes (just the files youve created, NO DEPENDENCIES ex: package-lock.json)
-Push branch and create a pull request off of github
+Commit and Push branch and create a pull request off of github
