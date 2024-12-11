@@ -1,10 +1,16 @@
 import React from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { PiSignatureThin } from "react-icons/pi";
+import {useNavigate} from 'react-router-dom';
 
 
 import './CardStyles.css';
 
+const Navigate = useNavigate();
+
+const handleCardClick = (employee) => {
+    Navigate('/Report')
+}
 
 function EmployeeCard ({employee}) {
     return (
