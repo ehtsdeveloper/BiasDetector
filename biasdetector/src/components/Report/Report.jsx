@@ -1,7 +1,12 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import './ReportStyles.css';
 
 const Report = () => {
+
+  const Location = useLocation();
+  const heartRate = Location.state?.heartRate;
+  
     return (
         <div className="container">
           {/* Thin rectangle at the very top */}
@@ -16,7 +21,7 @@ const Report = () => {
           <div className="section bottom-section">
             <div className="rect left">
               {/* Circles inside the left rectangle with different colors */}
-              <div className="circle red"></div>
+              <div className="circle red">{heartRate}</div>
               <div className="circle green"></div>
               <div className="circle blue"></div>
             </div>

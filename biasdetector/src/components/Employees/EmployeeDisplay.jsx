@@ -31,7 +31,7 @@ function EmployeeDisplay() {
       FullName: fullname,
       Height: height,
       Sex: sex,
-      Weight: weight
+      Weight: weight,
     };
 
     push(nameRef, newEmployee)

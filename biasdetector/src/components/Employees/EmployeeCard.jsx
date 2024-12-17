@@ -6,15 +6,19 @@ import {useNavigate} from 'react-router-dom';
 
 import './CardStyles.css';
 
-const Navigate = useNavigate();
 
-const handleCardClick = (employee) => {
-    Navigate('/Report')
-}
 
 function EmployeeCard ({employee}) {
+
+    const Navigate = useNavigate();
+
+    const heartRate = employee.HeartRate;
+
+    const handleCardClick = () => {
+        Navigate('/Report' , { state: {heartRate} });
+}
     return (
-        <div className="CardBackground">
+        <div className="CardBackground" onClick = {handleCardClick}>
            <div className="EmployeeProfileContainer">
                 <div>
                 <FaUserCircle size = {"3em"}></FaUserCircle>
