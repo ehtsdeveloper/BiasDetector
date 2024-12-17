@@ -1,14 +1,24 @@
 import React from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { PiSignatureThin } from "react-icons/pi";
+import {useNavigate} from 'react-router-dom';
 
 
 import './CardStyles.css';
 
 
+
 function EmployeeCard ({employee}) {
+
+    const Navigate = useNavigate();
+
+    const heartRate = employee.HeartRate;
+
+    const handleCardClick = () => {
+        Navigate('/Report' , { state: {heartRate} });
+}
     return (
-        <div className="CardBackground">
+        <div className="CardBackground" onClick = {handleCardClick}>
            <div className="EmployeeProfileContainer">
                 <div>
                 <FaUserCircle size = {"3em"}></FaUserCircle>

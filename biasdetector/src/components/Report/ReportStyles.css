@@ -1,9 +1,4 @@
-/* Reset default margin/padding */
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  } */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* The container to hold all sections */
 .container {
@@ -99,6 +94,11 @@
 /* Individual colors for each circle */
 .circle.red {
   background-color: #a3cef1; /* Red color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto Condensed', sans-serif ;
+  font-size: 30px;
 }
 
 .circle.green {
