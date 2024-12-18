@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://bhong928.github.io/biasdetector",
+  "homepage": "https://bhong928.github.io/BiasDetector",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
