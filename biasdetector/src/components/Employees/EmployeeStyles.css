@@ -9,6 +9,7 @@
 }
 
 .EmployeeFormContainer {
+    margin-top: 40px;
     background-color: #8B8C89;
     display: flex;
     flex-direction: column;
