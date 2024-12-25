@@ -2,6 +2,8 @@ import {React, useState} from "react";
 import { useNavigate } from "react-router-dom"; 
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import './LoginStyles.css';
+import logoImage from '../../assets/ehtslogo_login.png';
+
 
 const CreateAccount = () => {
     const navigate = useNavigate();
@@ -33,8 +35,7 @@ const SubmitAccount  = async(e) => {
     return (
         <div className = "login-container">
             {/* LOGO */}    
-        <img className = "logo" src="src/assets/ehtslogo_login.png" alt="Logo" />
-            {/* FORM CONTAINER */}
+            <img className="logo" src={logoImage} alt="Logo" />            {/* FORM CONTAINER */}
             <div className = "form-container">
                 {/* LOGIN FORM */}
                 <div className = "login-form">

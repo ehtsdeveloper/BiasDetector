@@ -2,6 +2,7 @@ import {React, useState} from "react";
 import { useNavigate} from "react-router-dom"; 
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import './LoginStyles.css';
+import logoImage from '../../assets/ehtslogo_login.png';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -31,7 +32,7 @@ const Login = () => {
     return (
         <div className = "login-container">
             {/* LOGO */}    
-        <img classname = "logo" src="src/assets/ehtslogo_login.png" alt="Logo" />
+        <img className="logo" src={logoImage} alt="Logo" />
             {/* FORM CONTAINER */}
             <div className = "form-container">
                 {/* LOGIN FORM */}
