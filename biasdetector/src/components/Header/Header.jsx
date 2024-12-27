@@ -34,12 +34,6 @@ const Header = () => {
                         <button onClick={handleLogout} className="logout-button">Logout</button>
                     </>
                 )}
-                {location.pathname !== "/Login" && location.pathname !== "/Report" && location.pathname !== "/EmployeeDisplay" && (
-                    <>
-                        <Link to="/Report">Report</Link>
-                        <Link to="/EmployeeDisplay">Employee Display</Link>
-                    </>
-                )}
                 {location.pathname === "/EmployeeDisplay" && (
                     <>
                         <Link to="/Report">Report</Link>
