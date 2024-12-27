@@ -84,11 +84,21 @@ form label, form input {
   margin-bottom: 10px;
   font-weight: bold;
   width: 100%; /* Set a fixed width for all buttons */
+  background-color: white;
+  border: none;
+  transition: background-color 0.5s ease;
+}
+
+.login-button:hover{
   background-color: #A3CEF1;
 }
 
 .password-button {
   background-color: white;
+}
+
+.password-button:hover {
+  background-color: #ff6c5c;
 }
 
 .password-button, .create-button {
@@ -100,6 +110,13 @@ form label, form input {
   font-weight: bold;
   width: 100%; /* Set a fixed width for all buttons */
   background-color: #E7ECEF;
+  border: none;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+}
+
+.create-button:hover {
+  background: #bfc0bc;
 }
 
 .back-login{
