@@ -25,7 +25,6 @@ const SubmitAccount  = async(e) => {
        
     })
     .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         setError(errorMessage);
        
@@ -47,14 +46,14 @@ const SubmitAccount  = async(e) => {
                         <label htmlFor = "email">Email Address</label>
                        <input type="email" 
                                 value={userEmail} 
-                                placeholder="Make sure to enter an @"
+                                placeholder="Enter Email"
                                 onChange={(e) => setEmail(e.target.value)} />
                         
                         <i className="fas fa-lock"></i>
                         <label htmlFor = "password">Password</label>
                         <input type="password" 
                                 value={userPassword} 
-                                placeholder="Enter a strong password"
+                                placeholder="Enter Password"
                                 onChange={(e) => setPassword(e.target.value)} />
                     </div>
                      
