@@ -22,29 +22,19 @@ const Header = () => {
             <nav className = "Navigation">  
             <img src="src/assets/ehtslogo_login.png" alt="Logo" className="nav-logo" />
                 {/* Hide Nav Bar Items certain pages */}
-                {location.pathname === "/Home" && (
-                    <>
-                        <Link to="/Login">Login</Link>
-                        <Link to="/Report">Report</Link>
-                        <Link to="/EmployeeDisplay">Employee Display</Link>
-                        <button onClick={handleLogout} className="logout-button">Logout</button>
-                    </>
-                )}
                 {location.pathname === "/Login" && (
                     <>
-                        <Link to="/">Home</Link>
                         <Link to="/Report">Report</Link>
                         <button onClick={handleLogout} className="logout-button">Logout</button>
                     </>
                 )}
                 {location.pathname === "/Report" && (
                     <>
-                        <Link to="/">Home</Link>
                         <Link to="/EmployeeDisplay">Employee Display</Link>
                         <button onClick={handleLogout} className="logout-button">Logout</button>
                     </>
                 )}
-                {location.pathname !== "/Home" && location.pathname !== "/Login" && location.pathname !== "/Report" && location.pathname !== "/EmployeeDisplay" && (
+                {location.pathname !== "/Login" && location.pathname !== "/Report" && location.pathname !== "/EmployeeDisplay" && (
                     <>
                         <Link to="/Report">Report</Link>
                         <Link to="/EmployeeDisplay">Employee Display</Link>
@@ -52,7 +42,6 @@ const Header = () => {
                 )}
                 {location.pathname === "/EmployeeDisplay" && (
                     <>
-                        <Link to="/">Home</Link>
                         <Link to="/Report">Report</Link>
                         <button onClick={handleLogout} className="logout-button">Logout</button>
                     </>
