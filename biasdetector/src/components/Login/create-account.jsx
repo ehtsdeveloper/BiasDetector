@@ -1,73 +1,91 @@
-import {React, useState} from "react";
-import { useNavigate } from "react-router-dom"; 
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import './LoginStyles.css';
 import logoImage from '../../assets/ehtslogo_login.png';
 
-
 const CreateAccount = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const [userEmail, setEmail] = useState('');
-    const [userPassword, setPassword] = useState('');
-    const [error, setError] = useState('');
+  const [userEmail, setEmail] = useState('');
+  const [userPassword, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-   
-const SubmitAccount  = async(e) => {
+  const SubmitAccount = async (e) => {
     e.preventDefault();
-    
+
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, userEmail, userPassword)
-    .then((userCredential) => {
-        
+      .then((userCredential) => {
         const user = userCredential.user;
         navigate('/Login');
-       
-    })
-    .catch((error) => {
+      })
+      .catch((error) => {
         const errorMessage = error.message;
         setError(errorMessage);
-       
-    });
-}
+      });
+  };
 
-    return (
-        <div className = "login-container">
-            {/* LOGO */}    
-            <img className="logo" src={logoImage} alt="Logo" />            {/* FORM CONTAINER */}
-            <div className = "form-container">
-                {/* LOGIN FORM */}
-                <div className = "login-form">
-                    <h2>Create an Account</h2>
-                    <form onSubmit={SubmitAccount}>
-                    {/* EMAIL */}
-                    <div className="input-container">
-                         <i className="fas fa-envelope"></i>
-                        <label htmlFor = "email">Email Address</label>
-                       <input type="email" 
-                                value={userEmail} 
-                                placeholder="Enter Email"
-                                onChange={(e) => setEmail(e.target.value)} />
-                        
-                        <i className="fas fa-lock"></i>
-                        <label htmlFor = "password">Password</label>
-                        <input type="password" 
-                                value={userPassword} 
-                                placeholder="Enter Password"
-                                onChange={(e) => setPassword(e.target.value)} />
-                    </div>
-                     
-                    {/* FORGOT PASSWORD & LOGIN BUTTONS */}
-                    <button type="submit" className="login-button">Create Account</button>
-                    <button type="button" className="back-login" onClick={() => navigate('/Login')}>Back to Login</button>
-                    </form>
-                    <div className="Error">
-                        {error}
-                    </div>
-                </div>
+  return (
+    <div className="font-lato bg-[#274C77] w-screen h-screen flex justify-center items-center relative">
+      {/* LOGO */}
+      <img className="absolute top-5 left-5 w-[15%]" src={logoImage} alt="Logo" />
+
+      {/* FORM CONTAINER */}
+      <div className="bg-white w-[40vw] h-screen flex justify-center items-center shadow-lg ml-auto relative">
+        {/* FORM */}
+        <div className="bg-[#274C77] w-[20vw] h-[65vh] flex flex-col justify-start items-center rounded-lg shadow-lg p-5 overflow-y-auto min-h-[500px] max-h-[90vh] relative">
+          <h2 className="text-center text-[#E7ECEF] mb-[25%] text-[30px] font-bold">
+            Create an Account
+          </h2>
+          <form onSubmit={SubmitAccount} className="flex flex-col justify-center items-center text-[#E7ECEF] w-full">
+            {/* EMAIL */}
+            <div className="flex flex-col w-full mb-4">
+              <label htmlFor="email" className="text-lg font-bold mb-2">Email Address</label>
+              <input
+                type="email"
+                value={userEmail}
+                placeholder="Enter Email"
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full p-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
             </div>
+
+            {/* PASSWORD */}
+            <div className="flex flex-col w-full mb-4">
+              <label htmlFor="password" className="text-lg font-bold mb-2">Password</label>
+              <input
+                type="password"
+                value={userPassword}
+                placeholder="Enter Password"
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full p-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+
+            {/* BUTTONS */}
+            <button
+              type="submit"
+              className="mt-4 text-black py-2 font-bold w-full bg-white border-none transition-colors duration-500 hover:bg-[#A3CEF1] rounded">
+              Create Account
+            </button>
+            <button
+              type="button"
+              className="mt-4 text-black py-2 font-bold w-full bg-[#E7ECEF] transition-colors duration-500 hover:bg-[#bfc0bc] rounded"
+              onClick={() => navigate('/Login')}>
+              Back to Login
+            </button>
+          </form>
+
+          {/* ERROR MESSAGE */}
+          {error && (
+            <div className="text-red-500 text-center mt-4">
+              {error}
+            </div>
+          )}
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
 export default CreateAccount;
