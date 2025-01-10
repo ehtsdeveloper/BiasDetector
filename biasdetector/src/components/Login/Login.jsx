@@ -28,7 +28,7 @@ const Login = () => {
   return (
     <div className="font-lato bg-[#274C77] w-screen h-screen flex justify-center items-center relative">
       {/* LOGO */}
-      <img className="absolute top-5 left-5 w-[15%]" src={logoImage} alt="Logo" />
+      <img className="absolute top-50 left-80 w-[15%]" src={logoImage} alt="Logo" />
 
       {/* FORM CONTAINER */}
       <div className="bg-white w-[40vw] h-screen flex justify-center items-center shadow-lg ml-auto relative">
