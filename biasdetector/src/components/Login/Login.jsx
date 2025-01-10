@@ -29,7 +29,7 @@ const Login = () => {
     <div className="font-lato bg-[#274C77] w-screen h-screen flex justify-center items-center relative">
       {/* LOGO */}
       <div className="w-full md:w-2/3 flex items-center justify-center p-8">
-        <img className="w=[200px] md:w-[300px] lg:w-[400px] transition-all duration-300 hover:scale-105"
+        <img className="w=[200px] md:w-[300px] lg:w-[400px]"
         src={logoImage}
         alt="Logo"
       />
@@ -70,17 +70,17 @@ const Login = () => {
             {/* BUTTONS */}
             <button
               type="submit"
-              className="mt-4 text-black py-2 font-bold w-full bg-white border-none transition-colors duration-500 hover:bg-[#A3CEF1] rounded">
+              className="mt-4 text-black py-2 font-bold w-full bg-white border-none transition-all duration-500 hover:bg-[#A3CEF1] hover:scale-105 rounded ">
               Login
             </button>
             <button
               type="button"
-              className="mt-4 text-black py-2 font-bold w-full bg-[#E7ECEF] transition-colors duration-500 hover:bg-[#ff6c5c] rounded">
+              className="mt-4 text-black py-2 font-bold w-full bg-[#E7ECEF] transition-all duration-500 hover:bg-[#ff6c5c] hover:scale-105 rounded">
               Forgot Password?
             </button>
             <button
               type="button"
-              className="mt-4 text-black py-2 font-bold w-full bg-[#E7ECEF] transition-colors duration-500 hover:bg-[#bfc0bc] rounded"
+              className="mt-4 text-black py-2 font-bold w-full bg-[#E7ECEF] transition-all duration-500 hover:bg-[#bfc0bc] hover:scale-105 rounded"
               onClick={() => navigate('/create-account')}>
               Create an Account
             </button>
