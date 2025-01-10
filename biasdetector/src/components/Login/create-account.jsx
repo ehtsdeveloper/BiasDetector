@@ -75,7 +75,7 @@ const CreateAccount = () => {
             </button>
             <button
               type="button"
-              className="mt-4 text-black py-2 font-bold w-full bg-[#E7ECEF] transition-all duration-500 hover:bg-[#bfc0bc] hover:scale-105 rounded"
+              className="mt-4 text-black py-2 font-bold w-full bg-[#E7ECEF] border-none transition-all duration-500 hover:bg-[#bfc0bc] hover:scale-105 rounded"
               onClick={() => navigate('/Login')}>
               Back to Login
             </button>

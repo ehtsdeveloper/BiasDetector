@@ -75,12 +75,12 @@ const Login = () => {
             </button>
             <button
               type="button"
-              className="mt-4 text-black py-2 font-bold w-full bg-[#E7ECEF] transition-all duration-500 hover:bg-[#ff6c5c] hover:scale-105 rounded">
+              className="mt-4 text-black py-2 font-bold w-full bg-[#E7ECEF] border-none transition-all duration-500 hover:bg-[#ff6c5c] hover:scale-105 rounded">
               Forgot Password?
             </button>
             <button
               type="button"
-              className="mt-4 text-black py-2 font-bold w-full bg-[#E7ECEF] transition-all duration-500 hover:bg-[#bfc0bc] hover:scale-105 rounded"
+              className="mt-4 text-black py-2 font-bold w-full bg-[#E7ECEF] border-none transition-all duration-500 hover:bg-[#bfc0bc] hover:scale-105 rounded"
               onClick={() => navigate('/create-account')}>
               Create an Account
             </button>
