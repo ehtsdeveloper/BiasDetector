@@ -28,7 +28,12 @@ const Login = () => {
   return (
     <div className="font-lato bg-[#274C77] w-screen h-screen flex justify-center items-center relative">
       {/* LOGO */}
-      <img className="absolute top-50 left-80 w-[15%]" src={logoImage} alt="Logo" />
+      <div className="w-full md:w-2/3 flex items-center justify-center p-8">
+        <img className="w=[200px] md:w-[300px] lg:w-[400px] transition-all duration-300 hover:scale-105"
+        src={logoImage}
+        alt="Logo"
+      />
+      </div>
 
       {/* FORM CONTAINER */}
       <div className="bg-white w-[40vw] h-screen flex justify-center items-center shadow-lg ml-auto relative">
