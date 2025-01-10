@@ -51,7 +51,7 @@ const Login = () => {
                 value={userEmail}
                 placeholder="Make sure to enter an @"
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
               />
             </div>
 
@@ -63,7 +63,7 @@ const Login = () => {
                 value={userPassword}
                 placeholder="Enter your password"
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full p-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
               />
             </div>
 
