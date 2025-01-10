@@ -38,7 +38,7 @@ const Login = () => {
       {/* FORM CONTAINER */}
       <div className="bg-white w-[40vw] h-screen flex justify-center items-center shadow-lg ml-auto relative">
         {/* LOGIN FORM */}
-        <div className="bg-[#274C77] w-[20vw] h-[65vh] flex flex-col justify-start items-center rounded-lg shadow-lg p-5 overflow-y-auto min-h-[500px] max-h-[90vh] relative">
+        <div className="bg-[#274C77] w-[25vw] h-[65vh] flex flex-col justify-start items-center rounded-lg shadow-lg p-5 overflow-y-auto min-h-[500px] max-h-[90vh] relative">
           <h2 className="text-center text-[#E7ECEF] mb-[25%] text-[50px] font-bold">
             Welcome
           </h2>
