@@ -28,7 +28,12 @@ const CreateAccount = () => {
   return (
     <div className="font-lato bg-[#274C77] w-screen h-screen flex justify-center items-center relative">
       {/* LOGO */}
-      <img className="absolute top-5 left-5 w-[15%]" src={logoImage} alt="Logo" />
+      <div className="w-full md:w-2/3 flex items-center justify-center p-8">
+        <img className="w=[200px] md:w-[300px] lg:w-[400px]"
+        src={logoImage}
+        alt="Logo"
+      />
+      </div>
 
       {/* FORM CONTAINER */}
       <div className="bg-white w-[40vw] h-screen flex justify-center items-center shadow-lg ml-auto relative">
@@ -65,12 +70,12 @@ const CreateAccount = () => {
             {/* BUTTONS */}
             <button
               type="submit"
-              className="mt-4 text-black py-2 font-bold w-full bg-white border-none transition-colors duration-500 hover:bg-[#A3CEF1] rounded">
+              className="mt-4 text-black py-2 font-bold w-full bg-white border-none transition-all duration-500 hover:bg-[#A3CEF1] hover:scale-105 rounded">
               Create Account
             </button>
             <button
               type="button"
-              className="mt-4 text-black py-2 font-bold w-full bg-[#E7ECEF] transition-colors duration-500 hover:bg-[#bfc0bc] rounded"
+              className="mt-4 text-black py-2 font-bold w-full bg-[#E7ECEF] transition-all duration-500 hover:bg-[#bfc0bc] hover:scale-105 rounded"
               onClick={() => navigate('/Login')}>
               Back to Login
             </button>
