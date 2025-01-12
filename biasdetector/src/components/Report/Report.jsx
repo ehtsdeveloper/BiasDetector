@@ -8,7 +8,7 @@ const Report = () => {
   const heartRate = Location.state?.heartRate;
   
     return (
-        <div className="container">
+        <div className="containerReport">
           {/* Thin rectangle at the very top */}
     
           {/* Top Section with two centered rectangles */}
