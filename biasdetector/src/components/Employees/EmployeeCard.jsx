@@ -4,11 +4,8 @@ import { PiSignatureThin } from "react-icons/pi";
 import {useNavigate} from 'react-router-dom';
 
 
-import './CardStyles.css';
 
-
-
-function EmployeeCard ({employee}) {
+function EmployeeCard ({employee, color}) {
 
     const Navigate = useNavigate();
 
@@ -18,33 +15,43 @@ function EmployeeCard ({employee}) {
         Navigate('/Report' , { state: {heartRate} });
 }
     return (
-        <div className="CardBackground" onClick = {handleCardClick}>
-           <div className="EmployeeProfileContainer">
-                <div>
-                <FaUserCircle size = {"3em"}></FaUserCircle>
+        <div  style={{ backgroundColor: color }} className={`bg-${color} flex flex-row h-[150px] rounded-[10px]`} onClick = {handleCardClick}>
+           <div className="flex-1 m-[5px]">
+                <div className="px-6 py-2">
+                <FaUserCircle size = {"4em"} color="white"></FaUserCircle>
+                </div >
+                <div className="flex flex-col">
+                    <div className="flex flex-row pl-4">
+                        <div className="mt-[5px] mx-[5px] text-[#E7ECEF] text-sm">
+                            {employee.Height}
+                        </div>
+                        <div className="mt-[5px] mx-[5px] text-[#E7ECEF] text-sm">
+                            {employee.Weight}
+                        </div>
+                    </div>
+
+                    <div className="flex flex-row pl-4">
+                        <div className="mt-[5px] mx-[5px] text-[#E7ECEF] text-sm">
+                            {employee.Age}
+                        </div>
+                        <div className="mt-[5px] mx-[5px] text-[#E7ECEF] text-sm">
+                            {employee.Sex}
+                        </div>
+                    </div>
+                    
                 </div>
-                <div className="WeightHeight">
-                <div className="Height">
-                    {employee.Height}
-                </div>
-                <div className="Weight">
-                    {employee.Weight}
-                </div>
-                </div>
+              
                
            </div>
-           <div className="EmployeeCredentials">
-                <div>
+           <div className="flex-1 flex flex-col font-Montserrat text-[#E7ECEF]">
+                <div className="mt-[30px] text-[21px]">
                 {employee.FullName}
                 </div>
                 
-                <div className="EmployeeID">
+                <div className="text-[15px] ">
                 Employee ID: {employee.EmployeeID}
                 </div>
 
-                <div>
-                <PiSignatureThin size = {"3em"}></PiSignatureThin>
-                </div>
            </div>
         </div>
     )

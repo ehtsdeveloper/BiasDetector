@@ -72,47 +72,47 @@ function EmployeeDisplay() {
   }, []); // Empty dependency array ensures this runs only once when the component mounts
 
   return (
-    <div className='background'>
-      <div className='EmployeeFormContainer'>
-        <div className='AddEmployee'>Add Employee</div>
-        <form onSubmit={EmployeeHandler} className='EmployeeForm'>
+    <div className='bg-[#F2F0EF] flex flex-row w-screen h-screen pt-[3vh]'>
+      <div className='bg-[#8B8C89] flex flex-col h-full  mt-10 p-2.5'>
+        <div className='text-xl text-center m-2.5'>Add Employee</div>
+        <form onSubmit={EmployeeHandler} className='flex flex-col gap-y-5'>
           <input
-            className="input"
+            className="bg-[white] box-border rounded-[10px]"
             type="number"
             placeholder="Enter age"
             value={age}
             onChange={(e) => setAge(e.target.value)}
           />
           <input
-            className="input"
+            className="bg-[white] box-border rounded-[10px]"
             type="text"
             placeholder="Enter EmployeeID"
             value={employeeid}
             onChange={(e) => setEmployeeid(e.target.value)}
           />
           <input
-            className="input"
+            className="bg-[white] box-border rounded-[10px]"
             type="text"
             placeholder="Enter Full Name"
             value={fullname}
             onChange={(e) => setFullName(e.target.value)}
           />
           <input
-            className="input"
+            className="bg-[white] box-border rounded-[10px]"
             type="text"
             placeholder="Enter Height"
             value={height}
             onChange={(e) => setHeight(e.target.value)}
           />
           <input
-            className="input"
+            className="bg-[white] box-border rounded-[10px]"
             type="number"
             placeholder="Enter Weight"
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
           />
           <input
-            className="input"
+            className="bg-[white] box-border rounded-[10px]"
             type="text"
             placeholder="Enter Sex"
             value={sex}
@@ -121,19 +121,24 @@ function EmployeeDisplay() {
           <button type="submit">Submit</button>
         </form>
       </div>
-      <div className='SearchContainer'> 
-        <input className='input'
-          type="text"
-          value={searchquery}
-          placeholder="Search..."
-          onChange={handleSearch}
-        />
+      <div className='flex flex-col items-center'>
+        <div className='mt-[50px]'> 
+          <input className='bg-[white] box-border rounded-[10px]'
+            type="text"
+            value={searchquery}
+            placeholder="Search..."
+            onChange={handleSearch}
+          />
+        </div>
+        <div className='grid sm:grid-cols-[repeat(1,1fr)] md:grid-cols-[repeat(2,1fr)] lg:grid-cols-[repeat(3,1fr)] grid-rows-[auto] gap-[15px] m-[50px]'>
+          {filteredItems.map((employee, index) => (
+            <EmployeeCard key={index} 
+                          color={bgcolors[index % bgcolors.length]}
+                          employee={employee}/>
+          ))}
+        </div>
       </div>
-      <div className='CardsContainer'>
-        {filteredItems.map((employee, index) => (
-          <EmployeeCard key={index} style={{ backgroundColor: bgcolors[index % bgcolors.length] }} employee={employee}/>
-        ))}
-      </div>
+      
     </div>
   );
 }
