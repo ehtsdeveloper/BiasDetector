@@ -1,122 +1,249 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
 
-/* The container to hold all sections */
+/* Container to hold all sections */
 .containerReport {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 100vw; /* Full height of the viewport */
+  width: 100vw;
 }
 
-/* Each section is equally divided */
+/* Each section takes equal space */
 .section {
-  flex: 1; /* Each section will take equal space */
-  margin: 0; /* Remove margin between sections */
+  flex: 1;
+  margin: 0;
 }
 
-/* Top section: just an empty section */
+/* Top section */
 .top-section {
   background-color: #274c77;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
-  height: 100%; /* Take full height of the section */
-  position: relative; /* Optional for any positioning adjustments */
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
 }
 
-/* Large rectangle in the center of the top section */
+/* Large rectangle in the top section */
 .top-rect.large {
-  width: 35%; /* Adjust width as needed */
-  height: 90px; /* Adjust height */
-  background-color: #e7ecef; /* Rectangle color */
-  border-radius: 15px; /* Rounded corners */
-  margin-bottom: 10px; /* Space between the two rectangles */
+  width: 35%;
+  height: 80px;
+  background-color: rgb(169, 168, 168);
+  border-radius: 15px;
+  margin-bottom: 10px;
+
+  /* New Flexbox styles to center text */
+  display: flex;
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  color: rgb(84, 84, 84); /* Text color (adjust as needed) */
+  font-family: "Roboto Condensed", sans-serif; /* Font family */
+  font-size: 1.5em; /* Adjust font size as needed */
 }
 
 /* Small rectangle below the large one */
 .top-rect.small {
-  width: 15%; /* Smaller width */
-  height: 40px; /* Smaller height */
-  background-color: black; /* Rectangle color */
-  border-radius: 10px; /* Rounded corners */
+  width: 13%;
+  height: 40px;
+  background-color: black;
+  border-radius: 10px;
+
+  /* New Flexbox styles to center text */
+  display: flex;
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  color: white; /* Text color (adjust as needed) */
+  font-family: "Roboto Condensed", sans-serif; /* Font family */
+  font-size: 1em; /* Adjust font size as needed */
 }
 
-/* Bottom sections: containing two rectangles side by side */
+/* Bottom section: containing two rectangles side by side */
 .bottom-section {
   display: flex;
-  justify-content: space-between; /* To space out the rectangles */
-  background-color: #274c77; /* Set background color behind the rectangles */
-  padding: 0 10px; /* Optional: add small horizontal padding inside the section */
+  justify-content: space-between;
+  background-color: #274c77;
+  padding: 0 10px;
 }
 
 /* General styles for rectangles */
 .rect {
-  background-color: #a3cef152; /* Rectangle color */
-  border-radius: 10px; /* Rounded corners */
+  background-color: rgba(169, 168, 168, 0.619);
+  border-radius: 10px;
+  position: relative; /* This ensures the text can be positioned relative to the container */
+}
+
+.text.above {
+  position: absolute; /* Position the text absolutely within the rect container */
+  top: -30px; /* Adjust this value to control the distance between the text and the rectangle */
+  left: 50%;
+  transform: translateX(-50%); /* Horizontally center the text */
+  color: white; /* Text color */
+  font-size: 1.2em; /* Adjust font size as needed */
+  font-family: "Roboto Condensed", sans-serif; /* Adjust font as needed */
+  font-weight: bold; /* Make text stand out */
+  text-align: center; /* Ensure the text is centered */
 }
 
 .left {
-  width: 65%; /* Longer width */
-  height: 170px; /* Height of the rectangle */
-  display: flex; /* Use Flexbox to arrange the circles inside */
-  justify-content: space-between; /* Evenly space the circles horizontally */
-  align-items: center; /* Center the circles vertically */
-  padding: 0 100px; /* Padding inside the left rectangle */
+  width: 65%;
+  height: 170px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
 }
 
 .circle {
-  width: 150px; /* Circle diameter */
-  height: 150px; /* Circle diameter */
-  background-color: #ff5722; /* Circle color */
-  border-radius: 50%; /* Makes the element circular */
-}
-
-/* Right rectangle: shorter */
-.right {
-  width: 33%; /* Shorter width */
-  height: 170px;
-  position: relative; /* Ensure that the rounded rectangle can be centered */
-}
-
-/* New Rounded Rectangle in the center of the right rectangle */
-.rounded-rect {
-  width: 70%; /* Width of the rounded rectangle inside the right rectangle */
-  height: 50px; /* Height of the rounded rectangle */
-  background-color: darkgreen; /* Color of the rounded rectangle */
-  border-radius: 10px; /* Rounded corners */
-  position: absolute; /* Absolute position to center it */
-  top: 50%; /* Center it vertically */
-  left: 50%; /* Center it horizontally */
-  transform: translate(-50%, -50%); /* Translate by -50% to truly center */
-}
-
-/* Individual colors for each circle */
-.circle.red {
-  background-color: #a3cef1; /* Red color */
+  width: 20vw; /* Or any size that fits your design */
+  height: 20vw;
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 50%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Roboto Condensed', sans-serif ;
-  font-size: 30px;
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  flex-direction: column; /* Stack text vertically */
+  text-align: center; /* Center text horizontally within each line */
+  color: white; /* Text color (adjust as needed) */
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.2em; /* Adjust font size as needed */
 }
 
-.circle.green {
-  background-color: #6096ba; /* Green color */
+.text {
+  display: block;
+}
+
+.text.low {
+  font-size: 1em;
+}
+
+.text.value {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* Right section */
+.right {
+  width: 33%;
+  height: 170px;
+  position: relative;
+}
+
+/* Rounded rectangle inside the right section */
+.rounded-rect {
+  width: 50%;
+  height: 70px;
+  background-color: rgb(1, 114, 1);
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* New Flexbox styles to center text */
+  display: flex;
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  color: white; /* Text color (adjust as needed) */
+  font-family: "Roboto Condensed", sans-serif; /* Font family */
+  font-size: 1.3em; /* Adjust font size as needed */
+}
+
+/* Rounded rectangle inside the right section */
+.rounded-recto {
+  width: 35%;
+  height: 70px;
+  background-color: #234469;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* New Flexbox styles to center text */
+  display: flex;
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  color: white; /* Text color (adjust as needed) */
+  font-family: "Roboto Condensed", sans-serif; /* Font family */
+  font-size: 1.3em; /* Adjust font size as needed */
+}
+
+/* Individual colors for circles */
+.circle.lightblue {
+  background-color: #a3cef1;
+}
+
+.circle.midblue {
+  background-color: #4578ab;
 }
 
 .circle.blue {
-  background-color: #274c77; /* Blue color */
+  background-color: #234469;
 }
 
-.circle.yellow {
-  background-color: #a3cef1; /* Yellow color */
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  /* Top section rectangles */
+  .top-rect.large {
+    width: 50%;
+  }
+
+  .top-rect.small {
+    width: 30%;
+  }
+
+  /* Bottom section layout */
+  .bottom-section {
+    flex-direction: column; /* Stack the sections vertically on smaller screens */
+    align-items: center;
+    padding: 10px;
+  }
+
+  .left {
+    width: 100%; /* Full width on mobile */
+    padding: 0;
+  }
+
+  .right {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  /* Circle size adjustments */
+  .circle {
+    width: 30vw;
+    height: 30vw;
+    max-width: 120px;
+    max-height: 120px;
+    font-size: 6vw;
+  }
+
+  .rounded-rect {
+    width: 80%;
+  }
 }
 
-.circle.purple {
-  background-color: #6096ba; /* Purple color */
-}
+@media (max-width: 480px) {
+  /* Further adjustments for very small screens */
+  .top-rect.large {
+    width: 70%;
+  }
 
-.circle.pink {
-  background-color: #274c77; /* Pink color */
+  .top-rect.small {
+    width: 40%;
+  }
+
+  .circle {
+    width: 40vw;
+    height: 40vw;
+    max-width: 100px;
+    max-height: 100px;
+    font-size: 8vw;
+  }
+
+  .rounded-rect {
+    width: 90%;
+  }
 }
