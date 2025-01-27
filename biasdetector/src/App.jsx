@@ -10,7 +10,7 @@ import ForgotPassword from "./components/Login/forgot-password";
 
 const App = () => {
   return (
-      <Router basename = "/BiasDetector">
+      <Router>
           <Header />
           <main>
               <Routes>
