@@ -1,12 +1,27 @@
-import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { getAuth, signOut } from "firebase/auth";
+import React, { useState, useEffect } from "react"; // Import useState & useEffect
+import { useLocation, useNavigate } from "react-router-dom";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import logoImage from '../../assets/ehtslogo_nav.png';
+import LogoutButton from "./LogoutButton";
+import ReportButton from "./ReportButton";
+import EmployeeButton from "./EmployeeButton";
 
 const Header = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const auth = getAuth();
+    const [user, setUser] = useState(null); // State to track authentication
+    const [isLoading, setIsLoading] = useState(true); // Prevents blank screen before auth loads
+
+    useEffect(() => {
+        // Listen for authentication changes
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+            setIsLoading(false); // Stop loading after auth state is checked
+        });
+
+        return () => unsubscribe(); // Cleanup listener when component unmounts
+    }, []);
 
     const handleLogout = async () => {
         try {
@@ -17,60 +32,23 @@ const Header = () => {
         }
     };
 
+    // Prevent rendering until Firebase auth state is loaded
+    if (isLoading) return null;
+    if (!user) return null;
+
     return (
         <header className="fixed top-0 w-full bg-[#8B8C89] shadow-md z-50 font-lato">
-            <nav className="flex flex-row justify-end items-center h-[45px] p-2.5">  
+            <nav className="flex flex-row justify-end items-center h-[30px] p-2.5">  
                 <img 
                     src={logoImage} 
                     alt="Logo" 
-                    className="h-[45px] w-auto mr-auto ml-1.5 border-2 border-[#A3CEF1] bg-[#A3CEF1] rounded-lg shadow-md p-1.5"
+                    className="h-[25px] w-auto mr-auto ml-1.5 border-2 border-[#A3CEF1] bg-[#A3CEF1] rounded-lg shadow-md p-1.5"
                 />
-                {location.pathname === "/Login" && (
+                {["/Login", "/Report", "/EmployeeDisplay"].includes(location.pathname) && (
                     <>
-                        <Link 
-                            to="/Report" 
-                            className="text-black text-lg no-underline rounded-lg px-2.5 py-1.5 transition-all duration-500 hover:text-[#E7ECEF] hover:bg-[#A3CEF1]"
-                        >
-                            Report
-                        </Link>
-                        <button 
-                            onClick={handleLogout} 
-                            className="bg-[#A3CEF1] text-black rounded-lg px-2.5 py-1.5 cursor-pointer transition-all duration-500 hover:bg-[#c0392b]"
-                        >
-                            Logout
-                        </button>
-                    </>
-                )}
-                {location.pathname === "/Report" && (
-                    <>
-                        <Link 
-                            to="/EmployeeDisplay"
-                            className="text-black text-lg no-underline rounded-lg px-2.5 py-1.5 transition-all duration-500 hover:text-[#E7ECEF] hover:bg-[#A3CEF1]"
-                        >
-                            Employee Display
-                        </Link>
-                        <button 
-                            onClick={handleLogout} 
-                            className="bg-[#A3CEF1] text-black rounded-lg px-2.5 py-1.5 cursor-pointer transition-all duration-500 hover:bg-[#c0392b]"
-                        >
-                            Logout
-                        </button>
-                    </>
-                )}
-                {location.pathname === "/EmployeeDisplay" && (
-                    <>
-                        <Link 
-                            to="/Report"
-                            className="text-black text-lg no-underline rounded-lg px-2.5 py-1.5 transition-all duration-500 hover:text-[#E7ECEF] hover:bg-[#A3CEF1]"
-                        >
-                            Report
-                        </Link>
-                        <button 
-                            onClick={handleLogout} 
-                            className="bg-[#A3CEF1] text-black rounded-lg px-2.5 py-1.5 cursor-pointer transition-all duration-500 hover:bg-[#c0392b]"
-                        >
-                            Logout
-                        </button>
+                        {location.pathname !== "/EmployeeDisplay" && <EmployeeButton />}
+                        {location.pathname !== "/Report" && <ReportButton />}
+                        <LogoutButton handleLogout={handleLogout} />
                     </>
                 )}
             </nav>
