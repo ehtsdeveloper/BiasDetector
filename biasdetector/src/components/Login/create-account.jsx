@@ -26,20 +26,26 @@ const CreateAccount = () => {
   };
 
   return (
-    <div className="font-lato bg-[#274C77] w-screen h-screen flex justify-center items-center relative">
+    <div className="flex flex-col lg:flex-row h-screen w-screen mx-auto">
       {/* LOGO */}
-      <div className="w-full md:w-2/3 flex items-center justify-center p-8">
-        <img className="w=[200px] md:w-[300px] lg:w-[400px]"
+      <div className="w-full lg:w-3/4 h-full bg-[#274C77] 
+                      flex items-center justify-center p-4 overflow-hidden">
+        <img className="w-[150px] sm:w-[200px] md:w-[250px] lg:w-[400px] xl:w-[500px]
+                     transition-all duration-500"
         src={logoImage}
         alt="Logo"
       />
       </div>
 
       {/* FORM CONTAINER */}
-      <div className="bg-white w-[40vw] h-screen flex justify-center items-center shadow-lg ml-auto relative">
+      <div className="w-full lg:w-1/4 h-full bg-white flex items-center justify-center
+                      px-6">
         {/* FORM */}
-        <div className="bg-[#274C77] w-[20vw] h-[65vh] flex flex-col justify-start items-center rounded-lg shadow-lg p-5 overflow-y-auto min-h-[500px] max-h-[90vh] relative">
-          <h2 className="text-center text-[#E7ECEF] mb-[25%] text-[30px] font-bold">
+        <div className="bg-[#274C77] w-full py-20 my-10
+                      rounded-lg shadow-lg p-6 sm:p-8 mx-4
+                      flex flex-col justify-start items-center">
+          <h2 className="text-center text-[#E7ECEF] mb-8 sm:mb-12 
+                         text-3xl sm:text-4xl lg:text-5xl font-bold">
             Create an Account
           </h2>
           <form onSubmit={SubmitAccount} className="flex flex-col justify-center items-center text-[#E7ECEF] w-full">

@@ -26,23 +26,23 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen bg-[#274C77]">
+    <div className="flex flex-col lg:flex-row h-screen w-screen mx-auto">
       {/* Logo Section */}
-      <div className="w-full lg:w-3/4 flex items-center justify-center p-4 sm:p-6 lg:p-8">
+      <div className="w-full lg:w-3/4 h-full bg-[#274C77] 
+                      flex items-center justify-center p-4 overflow-hidden">
         <img 
-          className="w-[200px] sm:w-[250px] md:w-[300px] lg:w-[400px] xl:w-[500px]
-                     transition-all duration-300"
+          className="w-[150px] sm:w-[200px] md:w-[250px] lg:w-[400px] xl:w-[500px]
+                     transition-all duration-500"
           src={logoImage}
           alt="Logo"
         />
       </div>
 
       {/* Form Container */}
-      <div className="w-full lg:w-1/2 min-h-[600px] lg:min-h-screen 
-                      bg-white flex items-center justify-end
-                      px-4 sm:px-6 md:px-8 py-6">
+      <div className="w-full lg:w-1/4 h-full bg-white flex items-center justify-center
+                      px-6">
         {/* Login Form */}
-        <div className="bg-[#274C77] w-full max-w-2xl 
+        <div className="bg-[#274C77] w-full py-20 my-10
                       rounded-lg shadow-lg p-6 sm:p-8 mx-4
                       flex flex-col justify-start items-center">
           <h2 className="text-center text-[#E7ECEF] mb-8 sm:mb-12 
