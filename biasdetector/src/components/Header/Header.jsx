@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
+import logoImage from '../../assets/ehtslogo_nav.png';
 
 const Header = () => {
     const location = useLocation();
@@ -20,7 +21,7 @@ const Header = () => {
         <header className="fixed top-0 w-full bg-[#8B8C89] shadow-md z-50 font-lato">
             <nav className="flex flex-row justify-end items-center h-[45px] p-2.5">  
                 <img 
-                    src="src/assets/ehtslogo_login.png" 
+                    src={logoImage} 
                     alt="Logo" 
                     className="h-[45px] w-auto mr-auto ml-1.5 border-2 border-[#A3CEF1] bg-[#A3CEF1] rounded-lg shadow-md p-1.5"
                 />
