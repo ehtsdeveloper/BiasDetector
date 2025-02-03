@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { ref, onValue, push } from 'firebase/database';
 import { db } from '../../firebase-config';
 import EmployeeCard from './EmployeeCard';
-import './EmployeeStyles.css';
 
 function EmployeeDisplay() {
 
@@ -14,7 +13,7 @@ function EmployeeDisplay() {
   const [sex, setSex] = useState('');
   const [weight, setWeight] = useState();
   const [searchquery, setSearchQuery] = useState('');
-  const bgcolors = ['#274C77', '#6096BA', '#A3CEF1' ]
+  const bgcolors = ['bg-[#274C77]', 'bg-[#6096BA]', 'bg-[#A3CEF1]' ]
  
 
   const handleSearch = (event) => {
@@ -72,9 +71,12 @@ function EmployeeDisplay() {
   }, []); // Empty dependency array ensures this runs only once when the component mounts
 
   return (
-    <div className='background'>
-      <div className='EmployeeFormContainer'>
-        <div className='AddEmployee'>Add Employee</div>
+    <div className="bg-gray-100 min-h-screen px-6 py-8">
+    {/* Main Container */}
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      {/* Employee Form */}
+        <div className='AddEmployee'></div>
+        <h2 className="text-white ">Add Employee</h2>
         <form onSubmit={EmployeeHandler} className='EmployeeForm'>
           <input
             className="input"
