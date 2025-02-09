@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate, useLocation} from "react-router-dom";
 import Login from '../src/components/Login/Login';
 import Header from './components/Header/Header';
 import CreateAccount from './components/Login/create-account';
@@ -11,6 +11,7 @@ import ForgotPassword from "./components/Login/forgot-password";
 const App = () => {
   return (
       <Router>
+      <ConditionalHeader />
           <Header />
           <main>
               <Routes>
@@ -24,6 +25,16 @@ const App = () => {
           </main>
       </Router>
   );
+};
+
+// Component to conditionally display the Header
+const ConditionalHeader = () => {
+    const location = useLocation();
+    // if on the Login page, do not display header contents
+    if (location.pathname === "/Login"){
+        return null;
+    }
+    return <Header />;
 };
 
 export default App;
