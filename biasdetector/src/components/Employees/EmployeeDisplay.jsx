@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ref, onValue, push } from 'firebase/database';
+import { ref, onValue, push, remove } from 'firebase/database';
 import { db } from '../../firebase-config';
 
 function EmployeeDisplay() {
@@ -18,7 +18,7 @@ function EmployeeDisplay() {
     const employeesRef = ref(db, 'users/names');
     const unsubscribe = onValue(employeesRef, (snapshot) => {
       if (snapshot.exists()) {
-        setEmployees(Object.values(snapshot.val()));
+        setEmployees(Object.entries(snapshot.val()).map(([id, data]) => ({ id, ...data })));
       } else {
         console.log("No employee data available.");
       }
@@ -45,6 +45,19 @@ function EmployeeDisplay() {
       .catch((error) => console.error('Error adding employee:', error));
   };
 
+  // Handle Delete function
+  const handleDelete = (employee) => {
+    const confirmDelete = window.confirm(`Are you sure you want to delete ${employee.FullName}?`);
+    if (confirmDelete) {
+      const nameRef = ref(db, `users/names/${employee.id}`); // Use the correct key from Firebase
+      remove(nameRef)
+        .then(() => {
+          console.log(`${employee.FullName} deleted successfully!`);
+        })
+        .catch((error) => console.error("Error deleting employee:", error));
+    }
+  };
+
   const filteredItems = employees.filter(item => item.FullName.toLowerCase().includes(searchquery.toLowerCase()));
 
   return (
@@ -64,6 +77,7 @@ function EmployeeDisplay() {
   
       {/* Right Content (Employee List) */}
       <div className="w-full md:w-3/4 flex flex-col p-6 h-[calc(100vh-50px)]">
+      
         {/* Search Bar */}
         <div className="mb-4">
           <input className="w-full p-3 border border-gray-300 rounded-xl" type="text" placeholder="Search employees..." value={searchquery} onChange={(e) => setSearchQuery(e.target.value)} />
@@ -72,7 +86,20 @@ function EmployeeDisplay() {
         {/* Employee Cards (Grid Layout) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((employee, index) => (
-            <div key={index} className={`p-6 rounded-xl text-white shadow-md ${bgcolors[index % bgcolors.length]}`}>
+            <div 
+              key={employee.id} 
+              className={`relative p-6 rounded-xl text-white shadow-md ${bgcolors[index % bgcolors.length]} group transition-all duration-300`} 
+            >
+
+              {/* Delete Button (appears when hovering over the whole card) */}
+              <button 
+                onClick={() => handleDelete(employee)} 
+                className="absolute top-2 right-2 bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center 
+                           opacity-0 group-hover:opacity-100 transition-opacity duration-500 hover:scale-110 hover:border-transparent"
+              >
+                ✖
+              </button>
+                   
               <div className="flex items-center justify-center text-3xl mb-4">👤</div>
               <ul className="text-sm space-y-1">
                 <li><b>Name:</b> {employee.FullName}</li>
