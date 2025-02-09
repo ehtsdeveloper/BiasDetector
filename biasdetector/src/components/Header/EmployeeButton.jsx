@@ -6,7 +6,7 @@ const EmployeeButton = () => {
     return(
         <button
         onClick={() => navigate("/EmployeeDisplay")}
-        className="bg-[#8B8C89] h-[25px] text-sm flex items-center justify-center text-whitefont-bold rounded-md px-4 py-2 cursor-pointer transition-all duration-500 hover:bg-[#c0392b] hover:border-transparent"
+        className="bg-[#8B8C89] h-[25px] text-sm flex items-center justify-center text-white font-bold rounded-md px-4 py-2 cursor-pointer transition-all duration-500 hover:bg-[#c0392b] hover:border-transparent"
         >
         Employees
         </button>
