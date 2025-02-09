@@ -37,12 +37,12 @@ const Header = () => {
     if (!user) return null;
 
     return (
-        <header className="fixed top-0 w-full bg-[#8B8C89] shadow-md z-50 font-lato">
-            <nav className="flex flex-row justify-end items-center h-[30px] p-2.5">  
+        <header className="fixed top-0 w-full bg-[#274C77] shadow-md z-50 font-lato">
+            <nav className="flex flex-row justify-end items-center h-[50px] p-2 space-x-4">  
                 <img 
                     src={logoImage} 
                     alt="Logo" 
-                    className="h-[25px] w-auto mr-auto ml-1.5 border-2 border-[#A3CEF1] bg-[#A3CEF1] rounded-lg shadow-md p-1.5"
+                    className="h-[30px] mr-auto ml-1.6 border-2 border-[#8B8C89] bg-[#8B8C89] rounded-lg shadow-md p-0.5"
                 />
                 {["/Login", "/Report", "/EmployeeDisplay"].includes(location.pathname) && (
                     <>

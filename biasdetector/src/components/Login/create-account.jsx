@@ -76,12 +76,12 @@ const CreateAccount = () => {
             {/* BUTTONS */}
             <button
               type="submit"
-              className="mt-4 text-black py-2 font-bold w-full bg-white border-none transition-all duration-500 hover:bg-[#A3CEF1] hover:scale-105 rounded">
+              className="mt-4 text-black py-2 font-bold w-full bg-white border-none transition-all duration-500 hover:bg-[#A3CEF1] hover:scale-105 hover:border-transparent rounded">
               Create Account
             </button>
             <button
               type="button"
-              className="mt-4 text-black py-2 font-bold w-full bg-[#E7ECEF] border-none transition-all duration-500 hover:bg-[#bfc0bc] hover:scale-105 rounded"
+              className="mt-4 text-black py-2 font-bold w-full bg-[#E7ECEF] border-none transition-all duration-500 hover:bg-[#bfc0bc] hover:scale-105 hover:border-transparent rounded"
               onClick={() => navigate('/Login')}>
               Back to Login
             </button>

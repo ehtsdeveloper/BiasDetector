@@ -94,7 +94,7 @@ const Login = () => {
                 className="w-full py-2 sm:py-3 font-bold text-black 
                           bg-white rounded
                           transition-all duration-500 
-                          hover:bg-[#A3CEF1] hover:scale-105">
+                          hover:bg-[#A3CEF1] hover:scale-105 hover:border-transparent">
                 Login
               </button>
 
@@ -104,7 +104,7 @@ const Login = () => {
                 className="w-full py-2 sm:py-3 font-bold text-black 
                           bg-[#E7ECEF] rounded
                           transition-all duration-500 
-                          hover:bg-[#ff6c5c] hover:scale-105">
+                          hover:bg-[#ff6c5c] hover:scale-105 hover:border-transparent">
                 Forgot Password?
               </button>
 
@@ -114,7 +114,7 @@ const Login = () => {
                 className="w-full py-2 sm:py-3 font-bold text-black 
                           bg-[#E7ECEF] rounded
                           transition-all duration-500 
-                          hover:bg-[#bfc0bc] hover:scale-105">
+                          hover:bg-[#bfc0bc] hover:scale-105 hover:border-transparent">
                 Create an Account
               </button>
             </div>
