@@ -9,32 +9,37 @@ import ForgotPassword from "./components/Login/forgot-password";
 
 
 const App = () => {
-  return (
+    return (
       <Router>
-      <ConditionalHeader />
-          <Header />
-          <main>
-              <Routes>
-                  <Route path="/" element={<Navigate to ="/Login" replace/>} />
-                  <Route path="/Login" element={<Login/>} />
-                  <Route path="/Report" element={<Report/>} />
-                  <Route path="/create-account" element={<CreateAccount />} />
-                  <Route path="/EmployeeDisplay" element={<EmployeeDisplay />} />
-                  <Route path="/forgot-password" element={<ForgotPassword />} />
-              </Routes>
-          </main>
+        <Routes>
+          <Route path="/Login" element={<Login />} />
+          <Route path="/" element={<Layout />}>
+            <Route path="/Report" element={<Report />} />
+            <Route path="/create-account" element={<CreateAccount />} />
+            <Route path="/EmployeeDisplay" element={<EmployeeDisplay />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/Login" replace />} />
+        </Routes>
       </Router>
-  );
-};
+    );
+  };
 
-// Component to conditionally display the Header
-const ConditionalHeader = () => {
-    const location = useLocation();
-    // if on the Login page, do not display header contents
-    if (location.pathname === "/Login"){
-        return null;
-    }
-    return <Header />;
-};
+// Layout Component: Ensures Header is only on specific pages
+const Layout = () => {
+    return (
+      <>
+        <Header /> {/* This ensures the header only appears outside of /Login */}
+        <main>
+          <Routes>
+            <Route path="/Report" element={<Report />} />
+            <Route path="/create-account" element={<CreateAccount />} />
+            <Route path="/EmployeeDisplay" element={<EmployeeDisplay />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+          </Routes>
+        </main>
+      </>
+    );
+  };
 
 export default App;
