@@ -85,6 +85,8 @@ function EmployeeDisplay() {
             <option value="Female">Female</option>
           </select>
           <input className="w-full p-2 rounded-md bg-[#6096BA] text-white text-center placeholder-white" type="text" placeholder="Enter Employee ID" value={employeeid} onChange={(e) => setEmployeeid(e.target.value)} />
+          <input className="w-full p-2 rounded-md bg-[#6096BA] text-white text-center placeholder-white" type="text" placeholder="Enter Height" value={height} onChange={(e) => setHeight(e.target.value)} />
+          <input className="w-full p-2 rounded-md bg-[#6096BA] text-white text-center placeholder-white" type="text" placeholder="Enter Weight" value={weight} onChange={(e) => setWeight(e.target.value)} />
           <button type="submit" className="w-full p-3 mt-2 bg-[#A3CEF1] text-white text-center rounded-md hover:border-transparent hover:bg-[#8B8C89] duration-500 transition-all">Submit</button>
         </form>
       </div>
@@ -117,11 +119,11 @@ function EmployeeDisplay() {
               <div className="flex items-center justify-center text-3xl mb-4">👤</div>
               <ul className="text-sm space-y-1">
                 <li><b>Name:</b> {employee.FullName}</li>
-                <li><b>Employee ID:</b> {employee.EmployeeID}</li>
-                <li><b>Badge Number:</b> XXXX</li>
-                <li><b>Rank:</b> XXXXX</li>
                 <li><b>Age:</b> {employee.Age}</li>
-                <li><b>Gender:</b> {employee.Sex}</li>
+                <li><b>Employee ID:</b> {employee.EmployeeID}</li>
+                <li><b>Height:</b> {employee.Height}</li>
+                <li><b>Weight:</b> {employee.Weight}</li>
+                <li><b>Sex:</b> {employee.Sex}</li>
               </ul>
             </div>
           ))}
