@@ -24,7 +24,6 @@ function EmployeeDisplay() {
         console.log("No employee data available.");
       }
     });
-
     return () => unsubscribe();
   }, []);
 
