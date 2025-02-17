@@ -19,11 +19,13 @@ function EmployeeDisplay() {
     const employeesRef = ref(db, 'users/names');
     const unsubscribe = onValue(employeesRef, (snapshot) => {
       if (snapshot.exists()) {
-        setEmployees(Object.entries(snapshot.val()).map(([id, data]) => ({ id, ...data })));
+        const data = snapshot.val();
+        setEmployees(Object.entries(data).map(([id, entry]) => ({ id, ...entry })));
       } else {
-        console.log("No employee data available.");
+        setEmployees([]); // Ensure it's an empty array, not undefined
       }
     });
+  
     return () => unsubscribe();
   }, []);
 
@@ -58,7 +60,9 @@ function EmployeeDisplay() {
     }
   };
 
-  const filteredItems = employees.filter(item => item.FullName.toLowerCase().includes(searchquery.toLowerCase()));
+  const filteredItems = employees.filter(item => 
+    item?.FullName && item.FullName.toLowerCase().includes(searchquery.toLowerCase())
+  );
 
   return (
     <div className="bg-[#E7ECEF] w-screen min-h-screen flex flex-col md:flex-row pt-[50px]"> {/* Ensures the div starts below the header */}

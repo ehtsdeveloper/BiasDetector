@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate, useLocation} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate, Outlet, useLocation } from "react-router-dom";
 import Login from '../src/components/Login/Login';
 import Header from './components/Header/Header';
 import CreateAccount from './components/Login/create-account';
@@ -12,34 +12,34 @@ const App = () => {
     return (
       <Router>
         <Routes>
+          {/* Route for Login without a Header */}
           <Route path="/Login" element={<Login />} />
-          <Route path="/" element={<Layout />}>
+
+          {/* Routes that should include the Header */}
+          <Route element={<Layout />}>
             <Route path="/Report" element={<Report />} />
             <Route path="/create-account" element={<CreateAccount />} />
             <Route path="/EmployeeDisplay" element={<EmployeeDisplay />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
           </Route>
+
+          {/* Redirect any unknown route to login */}
           <Route path="*" element={<Navigate to="/Login" replace />} />
         </Routes>
       </Router>
     );
-  };
+};
 
-// Layout Component: Ensures Header is only on specific pages
+// Layout Component: Wraps routes that require the Header
 const Layout = () => {
     return (
       <>
-        <Header /> {/* This ensures the header only appears outside of /Login */}
+        <Header /> {/* The header will only appear on these routes */}
         <main>
-          <Routes>
-            <Route path="/Report" element={<Report />} />
-            <Route path="/create-account" element={<CreateAccount />} />
-            <Route path="/EmployeeDisplay" element={<EmployeeDisplay />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-          </Routes>
+          <Outlet /> {/* Renders the child routes */}
         </main>
       </>
     );
-  };
+};
 
 export default App;
