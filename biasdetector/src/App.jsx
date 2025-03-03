@@ -17,7 +17,7 @@ const App = () => {
 
           {/* Routes that should include the Header */}
           <Route element={<Layout />}>
-            <Route path="/Report" element={<Report />} />
+            <Route path="/Report/:id" element={<Report />} />
             <Route path="/create-account" element={<CreateAccount />} />
             <Route path="/EmployeeDisplay" element={<EmployeeDisplay />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />

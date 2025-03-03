@@ -47,7 +47,7 @@ const Header = () => {
                 {["/Login", "/Report", "/EmployeeDisplay"].includes(location.pathname) && (
                     <>
                         {location.pathname !== "/EmployeeDisplay" && <EmployeeButton />}
-                        {location.pathname !== "/Report" && <ReportButton />}
+                        {/* {location.pathname !== "/Report" && <ReportButton />} */} 
                         <LogoutButton handleLogout={handleLogout} />
                     </>
                 )}
