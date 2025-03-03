@@ -14,7 +14,7 @@ function EmployeeDisplay() {
   const [searchquery, setSearchQuery] = useState('');
   const [menuOpen, setMenuOpen] = useState(false); // Hamburger menu state
 
-  const navigate = useNavigate(); // 🔹 UPDATED: Initialize navigation for dynamic reports
+  const navigate = useNavigate(); // 🔹 Initialize navigation for dynamic reports
 
   const bgcolors = ['bg-[#274C77]', 'bg-[#6096BA]', 'bg-[#A3CEF1]'];
 
@@ -50,7 +50,7 @@ function EmployeeDisplay() {
       .catch((error) => console.error('Error adding employee:', error));
   };
 
-  // 🔹 UPDATED: Navigate to Report Page
+  // 🔹 Navigate to Report Page
   const handleCardClick = (employee) => {
     navigate(`/Report/${employee.id}`, { state: { employee }});
   };
@@ -72,10 +72,28 @@ function EmployeeDisplay() {
     item?.FullName && item.FullName.toLowerCase().includes(searchquery.toLowerCase())
   );
 
+  // Handle Long Press on Mobile
+  let touchTimer = null; // stores timer ID
+
+  const handleLongPress = (e, employee) => {
+    if (window.innerWidth >- 768) return; // only activate on mobile
+
+    touchTimer = setTimeout(() => {
+      const confirmDelete = window.confirm ('Are you sure you want to delete ${employee.FullName}?');
+      if (confirmDelete) {
+        handleDelete(employee);
+      }
+    }, 800); // 800 ms = long press threshold
+  };
+
+  const handleTouchEnd = () => {
+    clearTimeout(touchTimer); // Canccel if released early
+  }
+
   return (
     <div className="bg-[#E7ECEF] w-screen min-h-screen flex flex-col md:flex-row pt-[50px]">
       
-      {/* 🔹 UPDATED: Hamburger Button for Mobile */}
+      {/* 🔹 Hamburger Button for Mobile */}
       <button 
         className="md:hidden left-4 z-50 font-bold bg-[#8B8C89] text-white p-2 rounded shadow-lg" 
         onClick={() => setMenuOpen(!menuOpen)}
@@ -83,7 +101,7 @@ function EmployeeDisplay() {
         ☰
       </button>
 
-      {/* 🔹 UPDATED: Left Sidebar - Full Width on Mobile, 1/4 Width on Desktop */}
+      {/* 🔹 Left Sidebar - Full Width on Mobile, 1/4 Width on Desktop */}
       <div className={`bg-[#274C77] w-full md:w-1/4 h-[calc(100vh-50px)] flex flex-col justify-center p-6 shadow-lg 
                       transition-transform duration-300 transform ${menuOpen ? "translate-y-0" : "-translate-y-full"} 
                       md:translate-y-0 fixed md:relative top-[50px] md:top-0 left-0 z-40`}
@@ -121,18 +139,20 @@ function EmployeeDisplay() {
           <input className="w-full p-3 border border-gray-300 rounded-xl" type="text" placeholder="Search employees..." value={searchquery} onChange={(e) => setSearchQuery(e.target.value)} />
         </div>
   
-        {/* 🔹 UPDATED: Employee Cards (Grid Layout) */}
+        {/* Employee Cards (Grid Layout) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((employee, index) => (
             <div 
               key={employee.id}
-              onClick={() => handleCardClick(employee)} // 🔹 UPDATED: Navigate to report on click
+              onClick={() => handleCardClick(employee)} // Navigate to report on click
+              onTouchStart={(e) => handleLongPress(e, employee)} // Detect Long Press on Mobile
+              onTouchEnd={handleTouchEnd} // Reset Timer when user lifts finger
               className={`relative p-6 rounded-xl text-white shadow-md ${bgcolors[index % bgcolors.length]} group transition-all duration-300 cursor-pointer`} 
             >
               {/* Delete Button (appears when hovering over the whole card) */}
               <button 
                 onClick={(e) => {
-                  e.stopPropagation(); // 🔹 UPDATED: Prevent navigation when clicking delete
+                  e.stopPropagation(); // Prevent navigation when clicking delete
                   handleDelete(employee);
                 }} 
                 className="absolute top-2 right-2 bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center 
