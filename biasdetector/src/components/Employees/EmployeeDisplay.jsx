@@ -90,17 +90,26 @@ function EmployeeDisplay() {
       >
         <h2 className="text-white text-xl font-bold mb-8 text-center">Add Employee</h2>
         <form onSubmit={EmployeeHandler} className="space-y-3">
+        {/* Name */}
           <input className="w-full p-2 rounded-md bg-[#6096BA] text-white text-center placeholder-white" type="text" placeholder="Enter Name" value={fullname} onChange={(e) => setFullName(e.target.value)} />
+        {/* Age */}
           <input className="w-full p-2 rounded-md bg-[#6096BA] text-white text-center placeholder-white" type="number" placeholder="Enter Age" value={age} onChange={(e) => setAge(e.target.value)} />
+        {/* Sex */}
           <select className="w-full p-2 rounded-md bg-[#6096BA] text-white text-center" value={sex} onChange={(e) => setSex(e.target.value)}>
             <option value="" disabled>Select Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
+        {/* Employee ID */}
           <input className="w-full p-2 rounded-md bg-[#6096BA] text-white text-center placeholder-white" type="text" placeholder="Enter Employee ID" value={employeeid} onChange={(e) => setEmployeeid(e.target.value)} />
+        {/* Height */}
           <input className="w-full p-2 rounded-md bg-[#6096BA] text-white text-center placeholder-white" type="text" placeholder="Enter Height" value={height} onChange={(e) => setHeight(e.target.value)} />
+        {/* Weight */}
           <input className="w-full p-2 rounded-md bg-[#6096BA] text-white text-center placeholder-white" type="text" placeholder="Enter Weight" value={weight} onChange={(e) => setWeight(e.target.value)} />
-          <button type="submit" className="w-full p-3 mt-2 bg-[#A3CEF1] text-white text-center rounded-md hover:border-transparent hover:bg-[#8B8C89] duration-500 transition-all">Submit</button>
+        {/* Submit Button Conditionally Rendered When ALL parameters are Filled out */}
+          {fullname && age && sex && employeeid && height && weight &&(
+            <button type="submit" className="w-full p-3 mt-2 bg-[#A3CEF1] text-white text-center rounded-md hover:border-transparent hover:bg-[#8B8C89] duration-500 transition-all">Submit</button>
+          )}
         </form>
       </div>
   

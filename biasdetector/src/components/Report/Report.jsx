@@ -18,7 +18,7 @@ const Report = () => {
       <div className="bg-[#274C77] text-white p-4 rounded-md w-full max-w-3xl text-center shadow-lg">
         <h2 className="text-lg font-bold">Employee: {employee.FullName}</h2>
         <p>ID#: {employee.EmployeeID}</p>
-        <p>Test Company LLC.</p>
+        <p>Company Name</p>
         <p>Test on <b>2/24/2025</b> at <b>4:24 PM</b></p>
       </div>
 
