@@ -95,7 +95,7 @@ function EmployeeDisplay() {
       
       {/* 🔹 Hamburger Button for Mobile */}
       <button 
-        className="md:hidden left-4 z-50 font-bold bg-[#6096BA] text-white p-2 rounded shadow-lg" 
+        className="md:hidden left-4 z-50 font-bold bg-[#8B8C89] text-white rounded-none border-transparent" 
         onClick={() => setMenuOpen(!menuOpen)}
       >
         ☰
