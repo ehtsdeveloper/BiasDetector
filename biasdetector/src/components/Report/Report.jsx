@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const Report = () => {
   const location = useLocation();
@@ -14,11 +15,44 @@ const Report = () => {
     return null;
   }
 
-  // 🔹 Mock test data (if real tests don't exist)
+  // Mock test data
   const mockTests = [
-    { id: 1, heartRate: 114, oxygenation: 80, date: "2/24/2025", time: "4:24 PM", status: "PASS" },
-    { id: 2, heartRate: 98, oxygenation: 85, date: "2/22/2025", time: "10:15 AM", status: "PASS" },
-    { id: 3, heartRate: 135, oxygenation: 76, date: "2/20/2025", time: "3:00 PM", status: "FAIL" },
+    { id: 1, heartRate: 114, oxygenation: 80, date: "2/24/2025", time: "4:24 PM", status: "PASS",
+      graphData: [
+        { time: 0, heartRate: 90  },
+        { time: 1, heartRate: 100 },
+        { time: 2, heartRate: 110 },
+        { time: 3, heartRate: 120 },
+        { time: 4, heartRate: 130 },
+        { time: 5, heartRate: 125 },
+        { time: 6, heartRate: 118 },
+        { time: 7, heartRate: 110 },
+        { time: 8, heartRate: 105 },
+      ]
+    },
+    { id: 2, heartRate: 98, oxygenation: 85, date: "2/22/2025", time: "10:15 AM", status: "PASS",
+      graphData: [
+        { time: 0, heartRate: 85 },
+        { time: 1, heartRate: 90 },
+        { time: 2, heartRate: 92 },
+        { time: 3, heartRate: 95 },
+        { time: 4, heartRate: 98 },
+        { time: 5, heartRate: 100 },
+        { time: 6, heartRate: 97 },
+      ]
+     },
+    { id: 3, heartRate: 135, oxygenation: 76, date: "2/20/2025", time: "3:00 PM", status: "FAIL",
+      graphData: [
+        { time: 0, heartRate: 100 },
+        { time: 1, heartRate: 120 },
+        { time: 2, heartRate: 140 },
+        { time: 3, heartRate: 160 },
+        { time: 4, heartRate: 155 },
+        { time: 5, heartRate: 140 },
+        { time: 6, heartRate: 130 },
+        { time: 7, heartRate: 110 },
+      ]
+     },
   ];
 
   // Use employee test data if available; otherwise, use mock data
@@ -27,6 +61,7 @@ const Report = () => {
 
   return (
     <div className="bg-[#E7ECEF] w-screen min-h-screen flex flex-col items-center justify-center p-6">
+
     {/* Test Selection Dropdown */}
     <div className="mt-4 p-4">
         <label className="block text-center font-bold">Select Test:</label>
@@ -58,9 +93,15 @@ const Report = () => {
       {/* Chart Placeholder */}
       <div className="mt-4 bg-white p-6 rounded-md shadow-lg w-full max-w-5xl">
         <h3 className="text-center text-lg font-bold mb-2">Heart Rate Data</h3>
-        <div className="h-64 bg-gray-300 rounded-lg flex items-center justify-center">
-          <span className="text-gray-700">[Graph Placeholder]</span>
-        </div>
+        <ResponsiveContainer width="100%" height={400}>
+          <LineChart data={selectedTest.graphData}>
+            <CartesianGrid strokeDasharray={"3 3"}/>
+            <XAxis dataKey="time" label={{value: "Time (s)", position: "insideBottomRight", offset: -5}}/>
+            <YAxis label={{value: "Heart Rate (BPM)", angle: -90, position: "insideLeft"}}/>
+            <Tooltip />
+            <Line type="monotone" dataKey="heartRate" stroke="#274C77" strokeWidth={2} />
+          </LineChart>
+        </ResponsiveContainer>
       </div>
 
       {/* Summary Section */}
