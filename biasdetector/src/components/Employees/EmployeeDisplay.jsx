@@ -94,11 +94,11 @@ function EmployeeDisplay() {
     <div className="bg-[#E7ECEF] w-screen min-h-screen flex flex-col md:flex-row pt-[50px]">
       
       {/* 🔹 Hamburger Button for Mobile */}
-      <button 
+      <button
         className="md:hidden left-4 z-50 font-bold bg-[#8B8C89] text-white rounded-none border-transparent" 
         onClick={() => setMenuOpen(!menuOpen)}
       >
-        ☰
+        Add Employee
       </button>
 
       {/* 🔹 Left Sidebar - Full Width on Mobile, 1/4 Width on Desktop */}
