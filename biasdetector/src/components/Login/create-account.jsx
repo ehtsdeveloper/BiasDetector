@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import logoImage from '../../assets/ehtslogo_login.png';
+import {getDatabase, ref, set} from "firebase/database"; // Import Firestore Database
 
 const CreateAccount = () => {
   const navigate = useNavigate();
+  const COMPANY_KEY = "EHTS2025" // Hardcoded Company Key for EHTS
 
+  const [companyKey, setCompanyKey] = useState('')
   const [userEmail, setEmail] = useState('');
   const [userPassword, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -13,15 +16,29 @@ const CreateAccount = () => {
   const SubmitAccount = async (e) => {
     e.preventDefault();
 
+    if (companyKey !== COMPANY_KEY){
+      setError("Invalid Company Key. Please Enter The Correct Key");
+      return;
+    }
+
     const auth = getAuth();
+    const db = getDatabase(); // Get Realtime Database instances
+
     createUserWithEmailAndPassword(auth, userEmail, userPassword)
       .then((userCredential) => {
         const user = userCredential.user;
+        
+        // Save user to realtime Database
+        set(ref(db, `EHTS/${companyKey}/accounts/${user.uid}`), {
+          email: userEmail,
+          companyKey: companyKey,
+          createdAt: new Date().toISOString(),
+        });
+
         navigate('/Login');
       })
       .catch((error) => {
-        const errorMessage = error.message;
-        setError(errorMessage);
+        setError(error.message);
       });
   };
 
@@ -73,6 +90,18 @@ const CreateAccount = () => {
               />
             </div>
 
+            {/* COMPANY KEY */}
+            <div>
+              <label htmlFor="company key" className="text-lg font-bold mb-2">Company Key</label>
+              <input
+                type="text"
+                value={companyKey}
+                placeholder="Company Key"
+                onChange={(e) => setCompanyKey(e.target.value)}
+                className="w-full p-2 rounded border border-grey-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black">
+              </input>
+            </div>
+
             {/* BUTTONS */}
             <button
               type="submit"
@@ -93,6 +122,7 @@ const CreateAccount = () => {
               {error}
             </div>
           )}
+          
         </div>
       </div>
     </div>

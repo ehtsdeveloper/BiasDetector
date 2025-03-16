@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../../firebase-config";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import logoImage from '../../assets/ehtslogo_login.png';
 
