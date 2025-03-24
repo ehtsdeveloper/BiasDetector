@@ -85,17 +85,17 @@ const Report = () => {
 
       {/* Employee Info Section */}
       <div className="flex flex-col gap-3 bg-[#274C77] text-white p-4 rounded-md w-full max-w-3xl text-center shadow-lg">
-        <h2 className="text-lg font-bold">
+        <h2 className="text-3xl font-bold">
           {employee.fullName}
         </h2>
-        <p className="text-lg">
-          <b>{selectedTest.testLabel}</b>
-        </p>
-        <p className="text-lg font-bold">
+        <p className="font-bold">
           ID#: {employee.employeeID}
         </p>
-        <p className="text-lg font-bold">
+        <p className="font-bold">
           Company: EHTS
+        </p>
+        <p>
+          <b>{selectedTest.testLabel}</b>
         </p>
         <p 
           className={`mt-4 px-6 py-2 text-2xl font-bold rounded-md shadow-lg ${
