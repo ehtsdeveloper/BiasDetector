@@ -37,7 +37,7 @@ const Report = () => {
       name: key,
       heartRate: averageHeartRate(graphData),
       oxygenation: test.sp02 || "N/A",
-      status: test.sp02 ? (test.sp02 >= 90 ? "PASS" : "FAIL") : "N/A",
+      status: test.sp02 ? (test.sp02 >= 90 ? "PASS" : "FAIL") : "N/A", // pass fail based on sp02
       testLabel: `Test ${testNumber} at ${testTime}`,
       graphData,
     };
