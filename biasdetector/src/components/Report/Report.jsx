@@ -70,10 +70,13 @@ const Report = () => {
 
   // Calculate Heart Rate Reserve (HRR)
   const hrr = hrMax - hrRest;
+
   // Calculate Target Heart Rate Minimum: thrMin = (hrr * 0.5) + hrRest
-  const thrMin = (hrr * 0.5) + hrRest;
+  const thrMin = 0.38 * hrMax;
+
   // Calculate Target Heart Rate Maximum: thrMax = 0.5 * hrMax
-  const thrMax = 0.5 * hrMax;
+  const thrMax = 0.59 * hrMax;
+
   // If the average heart rate is between the thresholds the pass; else, fail
   const avgHR = selectedTest.heartRate;
   const hrStatus = (avgHR >= thrMin && avgHR <= thrMax) ? "PASS" : "FAIL";
@@ -165,8 +168,8 @@ const Report = () => {
         <p><b>Average HeartRate:</b> {selectedTest.heartRate} bpm</p>
         <p><b>Oxygenation Level:</b> {selectedTest.oxygenation}%</p>
         <p><b>Heart Rate Reserve (HHR):</b> {hrr.toFixed(1)} bpm</p>
-        <p><b>Target HR Min (thrMin):</b> {thrMin.toFixed(1)} bpm</p>
-        <p><b>Target HR Max (thrMax):</b> {thrMax.toFixed(1)} bpm</p>
+        <p><b>Target HR Lower Threshold:</b> {thrMin.toFixed(1)} bpm</p>
+        <p><b>Target HR Upper Threshold:</b> {thrMax.toFixed(1)} bpm</p>
       </div>
 
       {/* Return to Employee List Button */}
