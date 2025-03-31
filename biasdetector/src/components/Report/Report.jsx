@@ -30,14 +30,13 @@ const Report = () => {
   // Parse the key for the test time: "Test_08:09:54" => ["Test", "08:09:54"]
   const parts = key.split("_");
   const testTime = parts[1] || "Unknown";
-  const testNumber = index + 1;                ``
+  const testNumber = index + 1;        
 
     return {
       id: index + 1,
       name: key,
       heartRate: averageHeartRate(graphData),
       oxygenation: test.sp02 || "N/A",
-      status: test.sp02 ? (test.sp02 >= 90 ? "PASS" : "FAIL") : "N/A", // pass fail based on sp02
       testLabel: `Test ${testNumber} at ${testTime}`,
       graphData,
     };
@@ -56,8 +55,29 @@ const Report = () => {
     return <div>No test data available.</div>;
   }
 
-  // CHANGED: Use formattedTests[0] instead of tests[0]
+  // Use the first test as the default selected test
   const [selectedTest, setSelectedTest] = useState(formattedTests[0]);
+
+  // ================================ HR Calculations ==============================================
+  //convert employee age to a number
+  const employeeAge = Number(employee.age);
+  // Calculate HR MAX using the formula: hrMAx = 206.9 - (employeeAge * 0.67)
+  const hrMax = 206.9 - (employeeAge * 0.67);
+  // Use the second reading in the heart rate array as HR rest (fall back to first reading if necessary)
+  const hrRest = selectedTest.graphData && selectedTest.graphData.length > 1 
+    ? selectedTest.graphData[1].heartRate 
+    : selectedTest.graphData[0].heartRate;
+
+  // Calculate Heart Rate Reserve (HRR)
+  const hrr = hrMax - hrRest;
+  // Calculate Target Heart Rate Minimum: thrMin = (hrr * 0.5) + hrRest
+  const thrMin = (hrr * 0.5) + hrRest;
+  // Calculate Target Heart Rate Maximum: thrMax = 0.5 * hrMax
+  const thrMax = 0.5 * hrMax;
+  // If the average heart rate is between the thresholds the pass; else, fail
+  const avgHR = selectedTest.heartRate;
+  const hrStatus = (avgHR >= thrMin && avgHR <= thrMax) ? "PASS" : "FAIL";
+  // ==============================================================================================
 
   return (
     <div className="bg-[#E7ECEF] w-screen min-h-screen flex flex-col items-center justify-center p-6">
@@ -99,12 +119,12 @@ const Report = () => {
         </p>
         <p 
           className={`mt-4 px-6 py-2 text-2xl font-bold rounded-md shadow-lg ${
-            selectedTest.status === "PASS" 
+            hrStatus === "PASS" 
             ? "bg-green-500" 
             : "bg-red-500"
           } text-white`}
         >
-            {selectedTest.status}
+            {hrStatus}
         </p>
       </div>
 
@@ -144,6 +164,9 @@ const Report = () => {
       <div className="mt-4 flex flex-col items-center bg-[#6096BA] text-white p-4 rounded-md shadow-lg w-3/4 max-w-3xl">
         <p><b>Average HeartRate:</b> {selectedTest.heartRate} bpm</p>
         <p><b>Oxygenation Level:</b> {selectedTest.oxygenation}%</p>
+        <p><b>Heart Rate Reserve (HHR):</b> {hrr.toFixed(1)} bpm</p>
+        <p><b>Target HR Min (thrMin):</b> {thrMin.toFixed(1)} bpm</p>
+        <p><b>Target HR Max (thrMax):</b> {thrMax.toFixed(1)} bpm</p>
       </div>
 
       {/* Return to Employee List Button */}
